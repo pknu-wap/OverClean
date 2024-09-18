@@ -1,11 +1,15 @@
 
 ![OverClean](https://github.com/user-attachments/assets/a5b086fa-04ee-468c-a629-556297dc048d)
 > 제한시간내에 집주인 몰래 (퍼즐을 풀어) 청소를 완료하라!
+> 
+<br><br/>
 
 ## 🎮게임 소개
 세상을 깨끗하게 하겠다는 대의를 가진 두 사나이가 펼치는 **잠입 청소 퍼즐 게임**
 
-## 협업 툴
+<br><br/>
+
+## 🛒협업 툴
 <div> 
   <img src="https://img.shields.io/badge/unity-ffffff?style=for-the-badge&logo=unity&logoColor=black"> 
   <br>
@@ -72,10 +76,11 @@
         
 <br/><br/>
         
-## 그라운드 룰
+## ⚽ 그라운드 룰
 ![Ground Rule](https://github.com/user-attachments/assets/a2f0827f-333a-4abb-bdbb-8b85ae9a2863)
 
-## 개발 일정
+## 📅 개발 일정
+![개발일정](https://github.com/user-attachments/assets/310d7c94-a096-427a-856b-60df7f4404e8)
 
 
 
