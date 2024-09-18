@@ -44,14 +44,14 @@
     <td align="center"><a href="https://github.com/Jinu219"><img src="https://avatars.githubusercontent.com/u/66197586?v=4" width="100px;" alt=""/>
     <td align="center"><a href="https://github.com/hyeokbini"><img src="https://avatars.githubusercontent.com/u/137269496?v=4" width="100px;" alt=""/>
     <td align="center"><a href="https://github.com/acastracity"><img src="https://avatars.githubusercontent.com/u/122096432?v=4" width="100px;" alt=""/>
-    <td align="center"><a href="https://github.com/tpdud1212"><img src="https://avatars.githubusercontent.com/u/165008035?v=4" width="100px;" alt=""/>
+    <td align="center"><a href="https://www.instagram.com/ye_l05?igsh=MW0zcjgzaWlvbTFtNg%3D%3D&utm_source=qr"><img src="https://avatars.githubusercontent.com/u/165008035?v=4" width="100px;" alt=""/>
   </tr>
     <tr>
     <td align="center"><a href="https://github.com/dohyeondol1" title="Code">도현석</a></td>
     <td align="center"><a href="https://github.com/Jinu219" title="Code">이진우</a></td>
     <td align="center"><a href="https://github.com/hyeokbini" title="Code">고혁빈</a></td>
     <td align="center"><a href="https://github.com/acastracity" title="Code">박준우</a></td>
-    <td align="center"><a href="https://github.com/tpdud1212" title="Code">이예은</a></td>
+    <td align="center"><a href="https://www.instagram.com/ye_l05?igsh=MW0zcjgzaWlvbTFtNg%3D%3D&utm_source=qr" title="Code">이예은</a></td>
   </tr>
   <tr>
     <td align="center"><b>정의(?)구현</b></td>
