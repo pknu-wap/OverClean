@@ -2,7 +2,11 @@
 ![OverClean](https://github.com/user-attachments/assets/a5b086fa-04ee-468c-a629-556297dc048d)
 > 제한시간내에 집주인 몰래 (퍼즐을 풀어) 청소를 완료하라!
 
-## 팀원 소개
+## 🎮게임 소개
+세상을 깨끗하게 하겠다는 대의를 가진 두 사나이가 펼치는 **잠입 청소 퍼즐 게임**
+
+<br/><br/>
+## 🎵 Contributors
 
 <table>
     <tr>
@@ -27,13 +31,14 @@
     <td align="center"><a href="https://github.com/tpdud1212" title="Code">이예은</a></td>
   </tr>
   <tr>
-    <td align="center"><b>팀장</b></td>
-    <td align="center"><b>플레이어&UI</b></td>
-    <td align="center"><b>맵&오브젝트</b></td>
-    <td align="center"><b>퍼즐</b></td>
+    <td align="center"><b>팀장 구현</b></td>
+    <td align="center"><b>플레이어&UI 구현</b></td>
+    <td align="center"><b>맵&오브젝트 구현</b></td>
+    <td align="center"><b>퍼즐 구현</b></td>
     <td align="center"><b></b></td>
   </tr>
 </table>
+<br/><br/>
 
 ⭐ Special Thanks
 ---
@@ -45,3 +50,13 @@
     <td align="center"><a href="https://github.com/gjsk132" title="Code">허나영</a></td>
   </tr>
 </table>
+        
+<br/><br/>
+        
+## 그라운드 룰
+![Ground Rule](https://github.com/user-attachments/assets/a2f0827f-333a-4abb-bdbb-8b85ae9a2863)
+
+
+
+
+
