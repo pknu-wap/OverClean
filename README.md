@@ -17,7 +17,7 @@
     <td align="center"><b>디자인</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/dohyeondoll"><img src="https://avatars.githubusercontent.com/u/102894803?v=4" width="100px;" alt=""/>
+    <td align="center"><a href="https://github.com/dohyeondol1"><img src="https://avatars.githubusercontent.com/u/102894803?v=4" width="100px;" alt=""/>
     <td align="center"><a href="https://github.com/Jinu219"><img src="https://avatars.githubusercontent.com/u/66197586?v=4" width="100px;" alt=""/>
     <td align="center"><a href="https://github.com/hyeokbini"><img src="https://avatars.githubusercontent.com/u/137269496?v=4" width="100px;" alt=""/>
     <td align="center"><a href="https://github.com/acastracity"><img src="https://avatars.githubusercontent.com/u/122096432?v=4" width="100px;" alt=""/>
