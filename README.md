@@ -34,3 +34,14 @@
     <td align="center"><b></b></td>
   </tr>
 </table>
+
+⭐ Special Thanks
+---
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/gjsk132"><img src="https://avatars.githubusercontent.com/u/113815454?v=4" width="100px;" alt=""/>
+  </tr>
+    <tr>
+    <td align="center"><a href="https://github.com/gjsk132" title="Code">허나영</a></td>
+  </tr>
+</table>
