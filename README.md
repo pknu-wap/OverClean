@@ -5,7 +5,24 @@
 ## 🎮게임 소개
 세상을 깨끗하게 하겠다는 대의를 가진 두 사나이가 펼치는 **잠입 청소 퍼즐 게임**
 
-## 개발 환경
+## 협업 툴
+<div> 
+  <img src="https://img.shields.io/badge/unity-ffffff?style=for-the-badge&logo=unity&logoColor=black"> 
+  <br>
+  
+  <img src="https://img.shields.io/badge/C_Sharp-512bd4?style=for-the-badge&logo=csharp&logoColor=white">
+  <img src="https://img.shields.io/badge/Visual_Studio-5c2d91?style=for-the-badge&logo=visualstudio&logoColor=white">
+  <img src="https://img.shields.io/badge/Visual_Studio_Code-0?&style=for-the-badge&logo=visualstudiocode&logoColor=white&color=007ACC"/>
+  <br>
+  
+  <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+  <img src="https://img.shields.io/badge/discord-5865f2?style=for-the-badge&logo=discord&logoColor=white">
+  <br>
+  
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  <br>
+</div>
 
 <br/><br/>
 ## 🎵 Contributors
@@ -33,9 +50,9 @@
     <td align="center"><a href="https://github.com/tpdud1212" title="Code">이예은</a></td>
   </tr>
   <tr>
-    <td align="center"><b>팀장 구현</b></td>
-    <td align="center"><b>플레이어 & UI 구현</b></td>
-    <td align="center"><b>맵 & 오브젝트 구현</b></td>
+    <td align="center"><b>정의(?)구현</b></td>
+    <td align="center"><b>플레이어&UI 구현</b></td>
+    <td align="center"><b>먑&오브젝트 구현</b></td>
     <td align="center"><b>퍼즐 구현</b></td>
     <td align="center"><b></b></td>
   </tr>
