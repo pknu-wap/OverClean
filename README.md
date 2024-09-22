@@ -58,7 +58,7 @@
     <td align="center"><b>플레이어 & UI 구현</b></td>
     <td align="center"><b>맵 & 오브젝트 구현</b></td>
     <td align="center"><b>퍼즐 구현</b></td>
-    <td align="center"><b></b></td>
+    <td align="center"><b>디자인</b></td>
   </tr>
 </table>
 <br/><br/>
