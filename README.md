@@ -54,11 +54,11 @@
     <td align="center"><a href="https://www.instagram.com/ye_l05?igsh=MW0zcjgzaWlvbTFtNg%3D%3D&utm_source=qr" title="Code">이예은</a></td>
   </tr>
   <tr>
-    <td align="center"><b>정의(?)구현</b></td>
-    <td align="center"><b>플레이어&UI 구현</b></td>
-    <td align="center"><b>먑&오브젝트 구현</b></td>
+    <td align="center"><b>맵 & 오브젝트 & 퍼즐 구현</b></td>
+    <td align="center"><b>플레이어 & UI 구현</b></td>
+    <td align="center"><b>맵 & 오브젝트 구현</b></td>
     <td align="center"><b>퍼즐 구현</b></td>
-    <td align="center"><b></b></td>
+    <td align="center"><b>디자인</b></td>
   </tr>
 </table>
 <br/><br/>
