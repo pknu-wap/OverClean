@@ -15,7 +15,6 @@
   <br>
   
   <img src="https://img.shields.io/badge/C_Sharp-512bd4?style=for-the-badge&logo=csharp&logoColor=white">
-  <img src="https://img.shields.io/badge/Visual_Studio-5c2d91?style=for-the-badge&logo=visualstudio&logoColor=white">
   <img src="https://img.shields.io/badge/Visual_Studio_Code-0?&style=for-the-badge&logo=visualstudiocode&logoColor=white&color=007ACC"/>
   <br>
   
