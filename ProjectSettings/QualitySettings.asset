@@ -21,6 +21,7 @@ QualitySettings:
     skinWeights: 1
     globalTextureMipmapLimit: 1
     textureMipmapLimitSettings: []
+    textureQuality: 1
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -70,6 +71,7 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    textureQuality: 0
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -119,6 +121,7 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -168,6 +171,7 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -217,6 +221,7 @@ QualitySettings:
     skinWeights: 4
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
     softParticles: 1
@@ -266,6 +271,7 @@ QualitySettings:
     skinWeights: 255
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
     softParticles: 1
@@ -315,6 +321,7 @@ QualitySettings:
     Stadia: 5
     Standalone: 5
     VisionOS: 5
+    Lumin: 5
     WebGL: 3
     Windows Store Apps: 5
     XboxOne: 5
