@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	// 플레이어의 입력 방향을 저장하는 벡터
 	public Vector2 inputVec;
 	public float speed;
 		
