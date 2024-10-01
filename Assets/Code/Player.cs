@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	// 플레이어의 이동 속도
 	public float speed;
 		
+	// Rigidbody2D 변수 선언
 	Rigidbody2D rigid;
 		
 	void Start()
