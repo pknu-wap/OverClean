@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 		
 	void Start()
 	{
+		// Rigidbody2D 초기화
 		rigid = GetComponent<Rigidbody2D>();
 	}
 
