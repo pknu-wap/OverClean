@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
+		// 사용자의 입력을 실시간으로 받아서 inputVec에 저장
+ 		// "Horizontal"과 "Vertical"은 Unity에서 설정된 입력 축을 의미하며,
+		// 각각 키보드의 좌우(WASD, 화살표)와 상하 입력을 감지함
 		inputVec.x = Input.GetAxisRaw("Horizontal");
 		inputVec.y = Input.GetAxisRaw("Vertical");
 	}
