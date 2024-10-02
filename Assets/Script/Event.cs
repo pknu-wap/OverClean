@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainScreenEvent : MonoBehaviour
 {
-    public void SceneMove()
+    public void MoveToLobby()
     {
         // GameLobby 씬으로 이동
         SceneManager.LoadScene("GameLobby");
     }
 
-    public void Exit()
+    public void ExitMainScreen()
     {
         // #if 키워드를 사용하여 플랫폼별로 다르게 실행하는 함수.
         // 에디터와 프로그램 실행을 구분.
