@@ -14,12 +14,16 @@ public class Player : MonoBehaviour
 
 	// SpriterRenderer 변수 선언
 	SpriteRenderer spriter;
+
+	// Animator 변수 선언
+	Animator anim;
 		
 	void Start()
 	{
 		// Rigidbody2D 초기화
 		rigid = GetComponent<Rigidbody2D>();
 		spriter = GetComponent<SpriteRenderer>();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
 
 	void LateUpdate()
 	{
+		anim.SetFloat("Speed", inputVec.magnitude);
+
     	// 플레이어가 x축 방향으로 움직이고 있는지 확인
     	if(inputVec.x != 0)
     	{
