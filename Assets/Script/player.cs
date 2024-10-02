@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 		
 	// Rigidbody2D 변수 선언
 	Rigidbody2D rigid;
+
+	// SpriterRenderer 변수 선언
 	SpriteRenderer spriter;
 		
 	void Start()
@@ -42,9 +44,12 @@ public class Player : MonoBehaviour
 
 	void LateUpdate()
 	{
-		if(inputVec.x != 0)
-		{
-			spriter.flipX = inputVec.x < 0;
-		}
+    	// 플레이어가 x축 방향으로 움직이고 있는지 확인
+    	if(inputVec.x != 0)
+    	{
+        	// x축 입력 값이 음수일 경우 (왼쪽으로 이동 중) 스프라이트를 뒤집음
+        	// x축 입력 값이 양수일 경우 (오른쪽으로 이동 중) 스프라이트를 원래 방향으로 돌림
+        	spriter.flipX = inputVec.x < 0;
+    	}
 	}
 }
