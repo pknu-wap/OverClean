@@ -1,4 +1,5 @@
 {
+  "dependencies": {
     "com.unity.2d.animation": {
       "version": "9.1.1",
       "depth": 1,
