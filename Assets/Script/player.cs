@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
 		
 	// Rigidbody2D 변수 선언
 	Rigidbody2D rigid;
+	SpriteRenderer spriter;
 		
 	void Start()
 	{
 		// Rigidbody2D 초기화
 		rigid = GetComponent<Rigidbody2D>();
+		spriter = GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -36,5 +38,13 @@ public class Player : MonoBehaviour
 		
 		// Rigidbody2D의 MovePosition 메서드를 사용해 계산된 위치로 물체를 이동시킴
 		rigid.MovePosition(rigid.position + nextVec);
+	}
+
+	void LateUpdate()
+	{
+		if(inputVec.x != 0)
+		{
+			spriter.flipX = inputVec.x < 0;
+		}
 	}
 }
