@@ -22,7 +22,9 @@ public class Player : MonoBehaviour
 	{
 		// Rigidbody2D 초기화
 		rigid = GetComponent<Rigidbody2D>();
+		// SpriterRenderer 초기화
 		spriter = GetComponent<SpriteRenderer>();
+		// Animator 초기화
 		anim = GetComponent<Animator>();
 	}
 
