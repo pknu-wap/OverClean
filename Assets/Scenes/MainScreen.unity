@@ -311,7 +311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 702657151}
         m_TargetAssemblyTypeName: MainScreenEvent, Assembly-CSharp
-        m_MethodName: SceneMove
+        m_MethodName: MoveToLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
