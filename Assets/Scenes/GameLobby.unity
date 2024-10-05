@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 103028192}
   - component: {fileID: 103028191}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: HazyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 135982317}
   - component: {fileID: 135982316}
   m_Layer: 5
-  m_Name: MainScreen
+  m_Name: GameLobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
