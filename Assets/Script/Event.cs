@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainScreenEvent : MonoBehaviour
+public class Event : MonoBehaviour
 {
     public void MoveToLobby()
     {
