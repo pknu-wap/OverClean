@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainScreenEvent : MonoBehaviour
+public class Event : MonoBehaviour
 {
     public void MoveToLobby()
     {
@@ -11,6 +11,12 @@ public class MainScreenEvent : MonoBehaviour
         SceneManager.LoadScene("GameLobby");
     }
 
+    public void MakeRoom()
+    {
+        // MakeRoom 씬으로 이동
+        SceneManager.LoadScene("MakeRoom");
+    }
+    
     public void ExitMainScreen()
     {
         // #if 키워드를 사용하여 플랫폼별로 다르게 실행하는 함수.
