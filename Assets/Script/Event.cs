@@ -11,6 +11,12 @@ public class Event : MonoBehaviour
         SceneManager.LoadScene("GameLobby");
     }
 
+    public void MakeRoom()
+    {
+        // MakeRoom 씬으로 이동
+        SceneManager.LoadScene("MakeRoom");
+    }
+    
     public void ExitMainScreen()
     {
         // #if 키워드를 사용하여 플랫폼별로 다르게 실행하는 함수.
