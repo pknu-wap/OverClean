@@ -55,7 +55,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         // 랜덤 코드 생성하고 중복 확인하기
         do
         {
-            roomCode = UnityEngine.Random.Range(100000, 999999).ToString();
+            roomCode = UnityEngine.Random.Range(1000000, 9999999).ToString();
         } while (existingRoomCodes.Contains(roomCode));
 
         // 생성된 코드는 여기 저장
