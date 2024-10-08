@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class LeafInteract : MonoBehaviour
 {
+    // 테두리 없는 상태
+    public Material normalState;
+    // 테두리 있는 상태
+    public Material canInteractState;
+    // 오브젝트의 인덱스(감옥 맵에서 0~7)
+    public int objectIndex;
+    // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
+    public StageManager stageManager;
     // 플레이어를 참조해서 위치를 받아오기 위한 변수
     public Transform playerLocation; 
     // 상호작용 거리
     public float interactionDistance = 1.0f; 
     // 상호작용 여부
     public bool hasInteracted = false; 
-    // 느낌표 프리팹
-    public GameObject exclamationPrefab; 
-    // 나뭇잎을 참조해서 제거하기 위한 변수
+    // 낙엽을 참조하기 위한 변수
     public GameObject prisonLeaf;
-    // 생성된 느낌표 인스턴스
-    private GameObject exclamationInstance; 
+    // 낙엽을 참조해서 material을 조정하기 위한 spriterenderer 변수
+    public SpriteRenderer sr;
+
+    void Start()
+    {
+        // sr을 getcomponent 메서드로 초기화
+        sr = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
         // 플레이어와 오브젝트 간 거리 계산
         float distanceToPlayer = Vector3.Distance(transform.position, playerLocation.position);
 
-        // 느낌표 생성
-        ShowMark(); 
+        // 테두리 생성
+        ShowHighlight(); 
 
         // 상호작용 가능한 거리 안에 있고 상호작용하지 않았다면
         if (distanceToPlayer <= interactionDistance && !hasInteracted)
@@ -36,8 +48,8 @@ public class LeafInteract : MonoBehaviour
         }
         else 
         {
-            // 느낌표 삭제
-            HideMark();
+            // 테두리 삭제
+            HideHighlight();
         }
     }
 
@@ -46,31 +58,26 @@ public class LeafInteract : MonoBehaviour
     {
         // 나중에 퍼즐 로직을 띄우면 됨
         // puzzle();
+        // statemanager에게 상호작용되었다고 알림
+        stageManager.ObjectInteract(objectIndex);
         hasInteracted = true;
-        HideMark(); 
+        HideHighlight(); 
         // 상호작용 테스트 로그
         Debug.Log("나뭇잎 상호작용");
         Destroy(prisonLeaf);
     }
 
-    // 느낌표 생성 및 표시
-    void ShowMark()
+    // 테두리 생성 및 표시
+    void ShowHighlight()
     {
-        // 이미 표시된 것이 없으면
-        if (exclamationInstance == null) 
-        {
-            // 느낌표 프리팹 생성
-            exclamationInstance = Instantiate(exclamationPrefab, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-        }
+        // 테두리가 있는 material로 변경
+        sr.material = canInteractState;
     }
 
-    // 느낌표 숨김
-    void HideMark()
+    // 테두리 숨김
+    void HideHighlight()
     {
-        if (exclamationInstance != null)
-        {
-            // 느낌표 프리팹 삭제
-            Destroy(exclamationInstance); 
-        }
+        // 테두리가 없는 material로 변경
+        sr.material = normalState;
     }
 }
