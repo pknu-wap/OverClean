@@ -78,13 +78,7 @@
 ## ⚽ 그라운드 룰
 ![GroundRule](https://github.com/user-attachments/assets/7ff068e7-bb67-4d12-9045-1c67a922bc3a)
 
-
 <br/><br/>
 
 ## 📅 개발 일정
-![개발일정](https://github.com/user-attachments/assets/310d7c94-a096-427a-856b-60df7f4404e8)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/27c04b21-1956-4bb8-84d1-69140f1ac7d8)
