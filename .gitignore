@@ -74,5 +74,8 @@ crashlytics-build.properties
 # Ignore VSCode folder
 .vscode/
 
+# Ignore PhotonServerSettings.asset
+Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+
 # Ignore private assets folder path
 /[Aa]ssets/private/
