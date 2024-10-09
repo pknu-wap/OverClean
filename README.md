@@ -76,7 +76,8 @@
 <br/><br/>
         
 ## ⚽ 그라운드 룰
-![Ground Rule](https://github.com/user-attachments/assets/a2f0827f-333a-4abb-bdbb-8b85ae9a2863)
+![GroundRule](https://github.com/user-attachments/assets/7ff068e7-bb67-4d12-9045-1c67a922bc3a)
+
 
 <br/><br/>
 
