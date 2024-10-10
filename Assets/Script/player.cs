@@ -55,8 +55,16 @@ public class Player : MonoBehaviour
     	// 물리적 이동은 여기서 처리하는 것이 적합하다.
 	void FixedUpdate()
 	{
-		// 입력 벡터를 정규화하여 속도와 델타 시간에 맞춰 다음 위치를 계산
-		Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+		if(playerID == 1)
+		{
+			// 입력 벡터를 정규화하여 속도와 델타 시간에 맞춰 다음 위치를 계산	
+			nextVec = inputVec1.normalized * speed * Time.fixedDeltaTime;
+		}
+		else if(playerID == 2)
+		{
+			// 입력 벡터를 정규화하여 속도와 델타 시간에 맞춰 다음 위치를 계산
+			nextVec = inputVec2.normalized * speed * Time.fixedDeltaTime;
+		}
 		
 		// Rigidbody2D의 MovePosition 메서드를 사용해 계산된 위치로 물체를 이동시킴
 		rigid.MovePosition(rigid.position + nextVec);
