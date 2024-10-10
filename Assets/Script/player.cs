@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 	// Animator 변수 선언
 	Animator anim;
 		
+	// 플레이어 ID 변수 추가 (1번 플레이어, 2번 플레이어 구분)
+	public int playerID;
 	void Start()
 	{
 		// Rigidbody2D 초기화
