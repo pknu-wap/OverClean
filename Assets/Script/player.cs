@@ -44,13 +44,13 @@ public class Player : MonoBehaviour
 
 		if(playerID == 1)
 		{
-			inputVec1.x = Input.GetAxisRaw("Horizontal1");
-			inputVec1.y = Input.GetAxisRaw("Vertical1");
+			inputVec1.x = Input.GetAxisRaw("Player1HorizontalKey");
+			inputVec1.y = Input.GetAxisRaw("Player1VerticalKey");
 		}
 		else if(playerID == 2)
 		{
-			inputVec2.x = Input.GetAxisRaw("Horizontal2");
-			inputVec2.y = Input.GetAxisRaw("Vertical2");
+			inputVec2.x = Input.GetAxisRaw("Player2HorizontalKey");
+			inputVec2.y = Input.GetAxisRaw("Player2VerticalKey");
 		}
 
 
