@@ -176,8 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e841ed3096003d43996c5e22c3c132a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputVec: {x: 0, y: 0}
+  inputVec1: {x: 0, y: 0}
+  inputVec2: {x: 0, y: 0}
   speed: 3
+  playerID: 2
 --- !u!50 &508322744
 Rigidbody2D:
   serializedVersion: 4
@@ -689,8 +691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e841ed3096003d43996c5e22c3c132a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputVec: {x: 0, y: 0}
+  inputVec1: {x: 0, y: 0}
+  inputVec2: {x: 0, y: 0}
   speed: 3
+  playerID: 1
 --- !u!95 &1623335649
 Animator:
   serializedVersion: 5
