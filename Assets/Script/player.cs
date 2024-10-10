@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     	// 물리적 이동은 여기서 처리하는 것이 적합하다.
 	void FixedUpdate()
 	{
+		Vector2 nextVec = Vector2.zero;	
 		if(playerID == 1)
 		{
 			// 입력 벡터를 정규화하여 속도와 델타 시간에 맞춰 다음 위치를 계산	
