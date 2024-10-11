@@ -10,6 +10,8 @@ public class GoalZone : MonoBehaviour
     // private bool player2InZone = false; 
     // 상호작용 개수를 확인하기 위한 stagemanager 참조
     public StageManager stageManager;    
+    // 스테이지 클리어 여부를 stageManager에게 전달하기 위한 변수
+    public bool stageClear = false;
 
     // 플레이어가 구역에 들어왔을 때 처리
     void OnTriggerEnter2D(Collider2D other)
@@ -47,8 +49,8 @@ public class GoalZone : MonoBehaviour
 
     void CheckForClear()
     {
-        // 두 플레이어가 구역 안에 들어왔고, 모든 상호작용이 완료되었을 때
-        if (player1InZone /*&& player2InZone*/ && stageManager.interactCount == stageManager.interactObject.Length)
+        // 두 플레이어가 구역 안에 들어왔고, 시간 내에 모든 상호작용이 완료됐다면
+        if (player1InZone /*&& player2InZone*/ && stageManager.interactCount == stageManager.interactObject.Length && !stageManager.isTimeOver)
         {
             ClearStage();
         }
@@ -57,6 +59,7 @@ public class GoalZone : MonoBehaviour
     void ClearStage()
     {
         // 스테이지 클리어
+        stageClear = true;
         Debug.Log("스테이지 클리어");
         // 여기에 게임 클리어 처리 로직 추가
     }
