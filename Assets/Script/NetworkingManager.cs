@@ -116,7 +116,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         }
 
         // 방에 입장 성공하면 씬 전환
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MakeRoom");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
     }
 
     // 방 입장 실패 시 호출 (방 코드로 입장 실패 시)
