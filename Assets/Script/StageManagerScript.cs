@@ -39,6 +39,16 @@ public class StageManager : MonoBehaviour
         interactionsCompleted = new bool[interactObject.Length];
         // 남은 시간을 주어신 시간으로 세팅
         remainTime = limitTime;
+
+        // 슬라이드 최대값 설정
+        if(timeSlider != null)
+        {
+            // 최댓값은 제한시간
+            timeSlider.maxValue = limitTime;
+
+            // 초기값은 제한시간과 동일
+            timeSlider.value = limitTime; 
+        }
     }
 
     void Update()
