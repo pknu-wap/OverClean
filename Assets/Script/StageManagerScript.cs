@@ -30,12 +30,25 @@ public class StageManager : MonoBehaviour
     // 타이머 텍스트를 표시하기 위한 text ui 참조
     public TMP_Text timerText;
 
+    // Slider UI 컴포넌트를 연결할 변수 
+    public Slider timeSlider;
+
     void Start()
     { 
         // 상호작용 오브젝트 개수만큼 bool 배열 정의
         interactionsCompleted = new bool[interactObject.Length];
         // 남은 시간을 주어신 시간으로 세팅
         remainTime = limitTime;
+
+        // 슬라이드 최대값 설정
+        if(timeSlider != null)
+        {
+            // 최댓값은 제한시간
+            timeSlider.maxValue = limitTime;
+
+            // 초기값은 제한시간과 동일
+            timeSlider.value = limitTime; 
+        }
     }
 
     void Update()
@@ -45,6 +58,13 @@ public class StageManager : MonoBehaviour
         {
             // 시간을 점차적으로 감소
             remainTime -= Time.deltaTime;
+
+            // 슬라이더 업데이트
+            if(timeSlider != null)
+            {
+                // 남은 시간을 슬라이더에 반영
+                timeSlider.value = remainTime; 
+            }
             // 남은 시간이 0 이하로 떨어지면
             if(remainTime <= 0)
             {
