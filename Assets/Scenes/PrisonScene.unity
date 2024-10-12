@@ -7665,6 +7665,7 @@ MonoBehaviour:
   remainTime: 10
   isTimeOver: 0
   timerText: {fileID: 1359239812}
+  timeSlider: {fileID: 1733002842}
 --- !u!4 &1558506331
 Transform:
   m_ObjectHideFlags: 0

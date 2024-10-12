@@ -58,6 +58,13 @@ public class StageManager : MonoBehaviour
         {
             // 시간을 점차적으로 감소
             remainTime -= Time.deltaTime;
+
+            // 슬라이더 업데이트
+            if(timeSlider != null)
+            {
+                // 남은 시간을 슬라이더에 반영
+                timeSlider.value = remainTime; 
+            }
             // 남은 시간이 0 이하로 떨어지면
             if(remainTime <= 0)
             {
