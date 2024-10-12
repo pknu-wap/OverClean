@@ -29,6 +29,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");
         Debug.Log("방을 나갔습니다.");
     }
 }
