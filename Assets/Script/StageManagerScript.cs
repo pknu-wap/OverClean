@@ -30,6 +30,9 @@ public class StageManager : MonoBehaviour
     // 타이머 텍스트를 표시하기 위한 text ui 참조
     public TMP_Text timerText;
 
+    // Slider UI 컴포넌트를 연결할 변수 
+    public Slider timeSlider;
+
     void Start()
     { 
         // 상호작용 오브젝트 개수만큼 bool 배열 정의
