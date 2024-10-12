@@ -206,6 +206,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &385463020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385463021}
+  - component: {fileID: 385463023}
+  - component: {fileID: 385463024}
+  m_Layer: 5
+  m_Name: PuzzleUi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &385463021
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385463020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969183323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 375}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &385463023
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385463020}
+  m_CullTransparentMesh: 1
+--- !u!114 &385463024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385463020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 60f0a2f47b568cb4c8e8c0b1536c18ab, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &504270774
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
+  m_AnchoredPosition: {x: 0, y: 260}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504270776
@@ -394,6 +466,7 @@ MonoBehaviour:
   hasInteracted: 0
   prisonDust: {fileID: 611649856}
   sr: {fileID: 611649859}
+  dustPuzzle: {fileID: 385463020}
 --- !u!212 &611649859
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5782,6 +5855,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 504270775}
+  - {fileID: 385463021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5843,6 +5917,7 @@ MonoBehaviour:
   hasInteracted: 0
   prisonDust: {fileID: 1020231855}
   sr: {fileID: 1020231858}
+  dustPuzzle: {fileID: 385463020}
 --- !u!212 &1020231858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6263,7 +6338,7 @@ Transform:
   m_GameObject: {fileID: 1242590421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.09, y: 5.8, z: -0.6}
+  m_LocalPosition: {x: -5.87, y: 1.14, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6365,6 +6440,7 @@ MonoBehaviour:
   prisonDoor: {fileID: 1264324508}
   doorMoveSpeed: 1
   sr: {fileID: 1264324512}
+  doorPuzzle: {fileID: 0}
 --- !u!60 &1264324511
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6810,6 +6886,7 @@ MonoBehaviour:
   hasInteracted: 0
   prisonDust: {fileID: 1664822651}
   sr: {fileID: 1664822654}
+  dustPuzzle: {fileID: 385463020}
 --- !u!212 &1664822654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7002,6 +7079,7 @@ MonoBehaviour:
   prisonDoor: {fileID: 1722749263}
   doorMoveSpeed: 1
   sr: {fileID: 1722749267}
+  doorPuzzle: {fileID: 0}
 --- !u!60 &1722749266
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7740,6 +7818,7 @@ MonoBehaviour:
   hasInteracted: 0
   prisonDust: {fileID: 2125304059}
   sr: {fileID: 2125304062}
+  dustPuzzle: {fileID: 385463020}
 --- !u!212 &2125304062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7898,6 +7977,7 @@ MonoBehaviour:
   hasInteracted: 0
   prisonLeaf: {fileID: 2128404430}
   sr: {fileID: 2128404432}
+  leafPuzzle: {fileID: 385463020}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
