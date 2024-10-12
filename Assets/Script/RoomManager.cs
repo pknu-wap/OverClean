@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     // 방 코드 표시 텍스트
     public Text roomCodeText;
+    
     private void Start()
     {
         if (PhotonNetwork.InRoom)

@@ -2,7 +2,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using System.Collections.Generic;
-//씬 관리 네임스페이스 추가
 using UnityEngine.SceneManagement;
 
 public class NetworkingManager : MonoBehaviourPunCallbacks
@@ -94,9 +93,9 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
             roomProps.Add("RoomCode", roomCode);
             roomOptions.CustomRoomProperties = roomProps;
             roomOptions.CustomRoomPropertiesForLobby = new string[] { "RoomCode" };
-            
-            // 방 생성
-            PhotonNetwork.CreateRoom(null, roomOptions);
+
+            // 방 이름을 방 코드로 설정하여 방 생성
+            PhotonNetwork.CreateRoom(roomCode, roomOptions);
             Debug.Log("생성된 방 코드: " + roomCode);
         }
         else
@@ -108,6 +107,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     // 방 입장 요청 함수 (방 코드로 입장)
     public void JoinRoom(string roomCode)
     {
+        // 방 코드를 방 이름으로 사용하여 입장 시도
         PhotonNetwork.JoinRoom(roomCode);
     }
 
@@ -115,6 +115,18 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Photon 서버에 연결되었습니다.");
+        // 로비 접속
+        PhotonNetwork.JoinLobby();
+    }
+
+    // 로비에 접속 성공 시 호출
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("로비에 접속했습니다.");
+        // 로비에 접속된 플레이어 수 출력
+        // 전체 연결된 플레이어 수
+        int playerCount = PhotonNetwork.CountOfPlayers;
+        Debug.Log("현재 로비에 접속된 플레이어 수: " + playerCount);
     }
 
     // 방 입장 성공 시 호출

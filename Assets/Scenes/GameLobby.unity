@@ -968,7 +968,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 941367450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265989333}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: JoinRoomWithCode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &941367450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,6 +1129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuickMatchButton: {fileID: 1897779720}
   MakeRoomButton: {fileID: 2060302028}
+  EnterRoomButton: {fileID: 941367449}
+  roomCodeInputField: {fileID: 1682606772}
 --- !u!4 &1265989334
 Transform:
   m_ObjectHideFlags: 0
