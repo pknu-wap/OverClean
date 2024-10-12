@@ -2,6 +2,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using System.Collections.Generic;
+//씬 관리 네임스페이스 추가
+using UnityEngine.SceneManagement;
 
 public class NetworkingManager : MonoBehaviourPunCallbacks
 {
@@ -46,6 +48,19 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
             // Photon 서버 연결
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    // Start 버튼 클릭 시 GameLobby 씬으로 이동
+    public void OnStartButtonClicked()
+    {
+        SceneManager.LoadScene("GameLobby");
+    }
+
+    // Exit 버튼 클릭 시 게임 종료
+    public void OnExitButtonClicked()
+    {
+        Application.Quit();
+        Debug.Log("게임 종료");
     }
 
     // 방 코드 생성 함수
@@ -116,7 +131,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         }
 
         // 방에 입장 성공하면 씬 전환
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+        SceneManager.LoadScene("Room");
     }
 
     // 방 입장 실패 시 호출 (방 코드로 입장 실패 시)

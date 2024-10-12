@@ -1,6 +1,7 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -38,6 +39,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         // 방을 나간 후에 GameLobby 씬으로 전환
         Debug.Log("방을 떠났습니다.");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");
+        SceneManager.LoadScene("GameLobby");
     }
 }
