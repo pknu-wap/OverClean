@@ -5,7 +5,11 @@
 <br><br/>
 
 ## 🎮게임 소개
-세상을 깨끗하게 하겠다는 대의를 가진 두 사나이가 펼치는 **잠입 청소 퍼즐 게임**
+- 세상을 깨끗하게 하겠다는 대의를 가진 두 사나이가 펼치는 **잠입 청소 퍼즐 게임**
+
+
+### 장르
+`협동` `멀티 플레이어` `퍼즐` `캐주얼`
 
 <br><br/>
 
@@ -53,7 +57,7 @@
     <td align="center"><a href="https://www.instagram.com/ye_l05?igsh=MW0zcjgzaWlvbTFtNg%3D%3D&utm_source=qr" title="Code">이예은</a></td>
   </tr>
   <tr>
-    <td align="center"><b>맵 & 오브젝트 & 퍼즐 구현</b></td>
+    <td align="center"><b>네트워크 기능 구현</b></td>
     <td align="center"><b>플레이어 & UI 구현</b></td>
     <td align="center"><b>맵 & 오브젝트 구현</b></td>
     <td align="center"><b>퍼즐 구현</b></td>
@@ -76,14 +80,9 @@
 <br/><br/>
         
 ## ⚽ 그라운드 룰
-![Ground Rule](https://github.com/user-attachments/assets/a2f0827f-333a-4abb-bdbb-8b85ae9a2863)
+![GroundRule](https://github.com/user-attachments/assets/7ff068e7-bb67-4d12-9045-1c67a922bc3a)
 
 <br/><br/>
 
 ## 📅 개발 일정
-![개발일정](https://github.com/user-attachments/assets/310d7c94-a096-427a-856b-60df7f4404e8)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/27c04b21-1956-4bb8-84d1-69140f1ac7d8)
