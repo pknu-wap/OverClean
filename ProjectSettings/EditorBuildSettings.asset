@@ -57,7 +57,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room.unity
     guid: 248669a9fdb55404e80fb44fb15b3e0c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamePlay.unity
-    guid: 6c341f03b5c98a34399702e3ec76c339
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PrisonScene.unity
+    guid: f97a0a5124585ac4fb4cb1522bd97633
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene/PrisonPuzzleScene/PrisonLeafPuzzleScene.unity
+    guid: 7640259e73c3a1c408903b9454edae7d
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene/PrisonPuzzleScene/PrisonDustPuzzleScene.unity
+    guid: 7b87881c1eb88b3439b05533a96721f6
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene/PrisonPuzzleScene/PrisonDoorPuzzleScene.unity
+    guid: 0dd53d13298693d4abc387a08fd5c488
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene/PrisonPuzzleScene/PrisonPipePuzzleScene.unity
+    guid: 3b77c8fd16799a946b25fd7d14f01bf6
   m_configObjects: {}
