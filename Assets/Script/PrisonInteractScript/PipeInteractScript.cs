@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PipeInteract : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PipeInteract : MonoBehaviour
     private GameObject floodWaterInstance; 
     // 파이프를 참조해서 material을 조정하기 위한 spriterenderer 변수
     public SpriteRenderer sr;
+    // 파이프 퍼즐
+    public GameObject pipePuzzle;
+    // 퍼즐이 열려있는지 확인하기 위한 변수
+    private bool isPuzzleOpen = false;
 
     void Start()
     {
@@ -35,8 +40,8 @@ public class PipeInteract : MonoBehaviour
     }
     void Update()
     {
-        // 상호작용 존 안에 있고 상호작용하지 않았다면
-        if (pipeInteractZone != null && pipeInteractZone.isPlayerIn && !hasInteracted)
+        // 상호작용 존 안에 두 플레이어 모두가 있고 상호작용하지 않았다면
+        if (pipeInteractZone != null && pipeInteractZone.isPlayer1In && pipeInteractZone.isPlayer2In && !hasInteracted)
         {
             // 테두리 생성
             ShowHighlight(); 
@@ -51,20 +56,37 @@ public class PipeInteract : MonoBehaviour
             // 테두리 삭제
             HideHighlight();
         }
+        // 퍼즐이 열려 있는 상태에서 Z를 누르면 씬을 닫음
+        if (isPuzzleOpen && Input.GetKeyDown(KeyCode.Z))
+        {
+            CloseCurrentPuzzleScene();
+        }
     }
 
     // 상호작용 함수
     void Interact()
     {
-        // 나중에 퍼즐 로직을 띄우면 됨
-        // puzzle();
+        // 씬매니저로 퍼즐씬 불러오기
+        SceneManager.LoadScene("PrisonPipePuzzleScene", LoadSceneMode.Additive);
+        // pipePuzzle 오브젝트 활성화
+        if (pipePuzzle != null)
+        {
+            pipePuzzle.SetActive(true);
+            isPuzzleOpen = true;
+        }
         stageManager.ObjectInteract(objectIndex);
-        hasInteracted = true;
-        HideHighlight(); 
-        // 상호작용 테스트 로그
-        Debug.Log("파이프 상호작용");
+        HideHighlight();
         // 물 숨기기
         Destroy(floodWaterInstance);
+    }
+
+    void CloseCurrentPuzzleScene()
+    {
+        pipePuzzle.SetActive(false);
+        // 퍼즐 닫힘을 표시
+        isPuzzleOpen = false;
+        // 상호작용되었음을 표시
+        hasInteracted = true;
     }
 
     // 테두리 생성 및 표시

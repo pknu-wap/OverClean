@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorInteract : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class DoorInteract : MonoBehaviour
     private bool isMoving = false; 
     // 문을 참조해서 material을 조정하기 위한 spriterenderer 변수
     public SpriteRenderer sr;
+    // 문 퍼즐
+    public GameObject doorPuzzle;
+    // 퍼즐이 열려있는지 확인하기 위한 변수
+    private bool isPuzzleOpen = false;
 
     void Awake()
     {
@@ -61,27 +66,43 @@ public class DoorInteract : MonoBehaviour
             // 테두리 삭제
             HideHighlight();
         }
-
         // isMoving이면 문을 이동시키는 애니메이션 함수 작동
         if (isMoving)
         {
             MoveDoor();
+        }
+        // 퍼즐이 열려 있는 상태에서 Z를 누르면 씬을 닫음
+        if (isPuzzleOpen && Input.GetKeyDown(KeyCode.Z))
+        {
+            CloseCurrentPuzzleScene();
         }
     }
 
     // 상호작용 함수
     void Interact()
     {
-        // 나중에 퍼즐 로직을 띄우면 됨
-        // puzzle();
+        // 씬매니저로 퍼즐씬 불러오기
+        SceneManager.LoadScene("PrisonDoorPuzzleScene", LoadSceneMode.Additive);
+        // doorPuzzle 오브젝트 활성화
+        if (doorPuzzle != null)
+        {
+            doorPuzzle.SetActive(true);
+            isPuzzleOpen = true;
+        }
         // statemanager에게 상호작용되었다고 알림
         stageManager.ObjectInteract(objectIndex);
-        hasInteracted = true;
         // 문 이동 시작
         isMoving = true; 
         HideHighlight(); 
-        // 상호작용 테스트 로그
-        Debug.Log("문 상호작용");
+    }
+
+    void CloseCurrentPuzzleScene()
+    {
+        doorPuzzle.SetActive(false);
+        // 퍼즐 닫힘을 표시
+        isPuzzleOpen = false;
+        // 상호작용되었음을 표시
+        hasInteracted = true;
     }
 
     // 문을 부드럽게 이동시키는 함수
