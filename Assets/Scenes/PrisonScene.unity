@@ -8747,6 +8747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer1In: 0
   isPlayer2In: 0
+  pipeInteractZonePlayerCounter1: {fileID: 1054376979}
+  pipeInteractZonePlayerCounter2: {fileID: 222089048}
 --- !u!61 &2054068920
 BoxCollider2D:
   m_ObjectHideFlags: 0
