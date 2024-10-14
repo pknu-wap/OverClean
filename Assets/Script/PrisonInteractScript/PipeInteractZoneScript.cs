@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using UnityEngine;
 
 public class PipeInteractZone : MonoBehaviour
@@ -25,7 +26,12 @@ public class PipeInteractZone : MonoBehaviour
         {
             isPlayer2In = true;
         }
+        // 어떤 플레이어든 상호작용 존에 들어온다면 플레이어 카운터 변수 +1
+        zonePlayerCounter++;
+        // 플레이어 수에 따라 불빛 개수 갱신
+        UpdatePlayerCounter();
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player1"))
@@ -36,6 +42,31 @@ public class PipeInteractZone : MonoBehaviour
         else if (other.CompareTag("Player2"))
         {
             isPlayer2In = false;
+        }
+        // 어떤 플레이어든 상호작용 존에서 나간다면 플레이어 카운터 변수 -1
+        zonePlayerCounter--;
+        // 플레이어 수에 따라 불빛 개수 갱신
+        UpdatePlayerCounter();
+    }
+
+    // 현재 상호작용 존 안의 플레이어 수에 따라 불빛 개수를 갱신하는 함수
+    void UpdatePlayerCounter()
+    {
+        // 최대 플레이어는 2명, 가능한 경우의 수는 0,1,2이므로 if-else로 작성
+        if(zonePlayerCounter == 0)
+        {
+            pipeInteractZonePlayerCounter1.GetComponent<SpriteRenderer>().color = new Color(0.152f, 0.075f, 0.329f);
+            pipeInteractZonePlayerCounter2.GetComponent<SpriteRenderer>().color = new Color(0.152f, 0.075f, 0.329f);
+        }
+        else if(zonePlayerCounter == 1)
+        {
+            pipeInteractZonePlayerCounter1.GetComponent<SpriteRenderer>().color = Color.white;
+            pipeInteractZonePlayerCounter2.GetComponent<SpriteRenderer>().color = new Color(0.152f, 0.075f, 0.329f);
+        }
+        else if(zonePlayerCounter == 2)
+        {
+            pipeInteractZonePlayerCounter1.GetComponent<SpriteRenderer>().color = Color.white;
+            pipeInteractZonePlayerCounter2.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 }
