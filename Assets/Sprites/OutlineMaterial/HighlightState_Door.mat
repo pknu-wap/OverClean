@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HighlightState
-  m_Shader: {fileID: 4800000, guid: 62505ee61d20098489c6f861ed25cce1, type: 3}
+  m_Name: HighlightState_Door
+  m_Shader: {fileID: 4800000, guid: b63b97bdade5ba24c97dffb6bde722be, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -17,7 +17,6 @@ Material:
   - _OUTLINEMODE_SOLID
   - _OUTLINEPOSITION_INSIDE_UNDER_SPRITE
   - _OUTLINESHAPE_CONTOUR
-  - _TILEMODE_STRETCH
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -45,10 +44,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _FrameTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -87,12 +82,12 @@ Material:
     - _OutlineMode: 0
     - _OutlinePosition: 0
     - _OutlineShape: 0
+    - _OutlineSize: 0.0267
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Thickness: 3
-    - _TileMode: 0
     - _UVSec: 0
     - _Weight: 0.5
     - _ZWrite: 1
@@ -101,6 +96,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GradientOutline1: {r: 1, g: 1, b: 1, a: 1}
     - _GradientOutline2: {r: 1, g: 1, b: 1, a: 1}
-    - _ImageOutline: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SolidOutline: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
