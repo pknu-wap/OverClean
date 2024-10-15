@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
@@ -111,6 +112,21 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomCode);
     }
 
+    // 방 입장 시 캐릭터 할당
+    private void AssignCharacterToPlayer(Photon.Realtime.Player player)
+    {
+        if (!player.CustomProperties.ContainsKey("Character"))
+        {
+            // 플레이어가 처음 입장한 경우에만 캐릭터를 할당
+            string assignedCharacter = PhotonNetwork.PlayerList.Length == 1 ? "Dave" : "Matthew";
+            ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
+            playerProps.Add("Character", assignedCharacter);
+            player.SetCustomProperties(playerProps);
+
+            Debug.Log(player.NickName + "에게 캐릭터 " + assignedCharacter + "가 할당되었습니다.");
+        }
+    }
+
     // Photon 서버에 연결 성공 시 호출
     public override void OnConnectedToMaster()
     {
@@ -142,6 +158,9 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
             Debug.Log("방 입장 성공: 방 코드를 찾을 수 없습니다.");
         }
 
+        // 플레이어에게 캐릭터 할당
+        AssignCharacterToPlayer(PhotonNetwork.LocalPlayer);
+
         // 방에 입장 성공하면 씬 전환
         SceneManager.LoadScene("Room");
     }
@@ -158,9 +177,25 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         Debug.LogError("방 생성 실패: " + message);
     }
 
-    // 랜덤 방 입장 실패 시 호출 (추후 QuickMatch 기능에 사용 가능)
-    public override void OnJoinRandomFailed(short returnCode, string message)
+    // 플레이어가 방에서 나갈 때 호출
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        Debug.LogError("랜덤 방 입장 실패: " + message);
+        Debug.Log(otherPlayer.NickName + "이(가) 방을 나갔습니다.");
+
+        // 남아 있는 플레이어의 캐릭터가 유지되도록 처리
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.ContainsKey("Character"))
+            {
+                string character = player.CustomProperties["Character"].ToString();
+                Debug.Log("남은 플레이어 " + player.NickName + "의 캐릭터는 " + character + "입니다.");
+            }
+        }
+    }
+
+    // 방에서 나가는 경우에 호출
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 }
