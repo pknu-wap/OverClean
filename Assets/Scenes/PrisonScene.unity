@@ -157,7 +157,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -1.869812}
-  m_SizeDelta: {x: 60, y: 6.1963}
+  m_SizeDelta: {x: 40, y: 6.1963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19508678
 MonoBehaviour:
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.83617425, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.3737253, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7020,7 +7020,7 @@ SpriteRenderer:
   m_Size: {x: 0.91, y: 1.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1265398193
@@ -7321,7 +7321,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.000014067, y: -30.609}
-  m_SizeDelta: {x: 193, y: 38}
+  m_SizeDelta: {x: 192.51, y: 55.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359239812
 MonoBehaviour:
@@ -7373,7 +7373,7 @@ MonoBehaviour:
   m_fontSize: 55
   m_fontSizeBase: 55
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -8173,7 +8173,7 @@ SpriteRenderer:
   m_Size: {x: 0.91, y: 1.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1733002840
@@ -8212,7 +8212,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.78619385}
-  m_SizeDelta: {x: 60, y: -1.5725}
+  m_SizeDelta: {x: 40, y: -1.5725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733002842
 MonoBehaviour:
@@ -8501,7 +8501,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 509.92}
-  m_SizeDelta: {x: 60, y: 1029.8}
+  m_SizeDelta: {x: 32, y: 1029.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2035899695
 GameObject:
@@ -8748,8 +8748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer1In: 0
   isPlayer2In: 0
-  pipeInteractZonePlayerCounter1: {fileID: 1054376979}
-  pipeInteractZonePlayerCounter2: {fileID: 222089048}
+  pipeInteractZonePlayerCounter1: {fileID: 0}
+  pipeInteractZonePlayerCounter2: {fileID: 0}
 --- !u!61 &2054068920
 BoxCollider2D:
   m_ObjectHideFlags: 0
