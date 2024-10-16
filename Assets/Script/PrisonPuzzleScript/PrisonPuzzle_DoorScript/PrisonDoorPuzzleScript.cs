@@ -6,17 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PrisonDoorPuzzleScript : MonoBehaviour
 {
-    // 자물쇠 목록
+    // 자물쇠 프리팹 목록
     public List<GameObject> lockObjectsList = new List<GameObject>();
-    // 열쇠 목록
+    // 열쇠 프리팹 목록
     public List<GameObject> keyObjectsList = new List<GameObject>();
 
-    // 선택한 자물쇠와 맞는 열쇠 변수
+    // 선택한 자물쇠와 자물쇠에 맞는 해답 열쇠 변수
     public GameObject ansLock;
     public GameObject ansKey;
-
-    // 표시될 열쇠들의 목록(일단 7개, 코드에서 수정가능)
-    private GameObject[] displayKeyObjectsList = new GameObject[7];
 
     // 열쇠가 생성될 구간
     private Vector2 minPosition = new Vector2(-58.0f, -56.0f);
@@ -55,6 +52,7 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
 
     void Update()
     {
+        // 퍼즐이 해결됐다면
         if (puzzleSolved)
         {
             PuzzleSuccess();
@@ -68,16 +66,19 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
         }
     }
 
+    // 키 생성 함수
     public void GenerateKey(int curKeyIndex)
     {
+        // 범위 내 랜덤한 위치에 열쇠 프리팹 생성
         Vector3 keyGeneratePosition = new Vector3(
                 Random.Range(minPosition.x, maxPosition.x),
                 Random.Range(minPosition.y, maxPosition.y),
                 -1.1f
             );
 
-        // 키 생성 및 스크립트 참조
+        // 키 생성
         GameObject keyInstance = Instantiate(keyObjectsList[curKeyIndex], keyGeneratePosition, Quaternion.identity);
+        // 정답키 여부 설정을 위한 스크립트 컴포넌트 참조
         PrisonDoorKeyScript keyScript = keyInstance.GetComponent<PrisonDoorKeyScript>();
 
         // 정답 키 여부 설정
@@ -105,11 +106,13 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
     // 씬 닫기 함수
     void ClosePuzzleScene()
     {
+        // 퍼즐 씬에서 사용한 Key 프리팹을 전부 찾아와 제거
         GameObject[] destroyKey = GameObject.FindGameObjectsWithTag("Key");
         for(int i = 0; i < destroyKey.Length; i++)
         {
             Destroy(destroyKey[i]);
         }
+        // Lock 프리팹도 제거
         Destroy(GameObject.FindGameObjectWithTag("Lock"));
         // 현재 씬 닫기
         SceneManager.UnloadSceneAsync("PrisonDoorPuzzleScene");

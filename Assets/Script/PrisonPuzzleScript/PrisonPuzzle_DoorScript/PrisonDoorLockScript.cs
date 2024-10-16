@@ -16,11 +16,14 @@ public class PrisonDoorLockScript : MonoBehaviour
         doorPuzzleManager = FindObjectOfType<PrisonDoorPuzzleScript>();
     }
 
+    // 열쇠와 충돌 감지
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // 만약 해답 열쇠라면
         if(other.GetComponent<PrisonDoorKeyScript>().isAnsKey)
         {
             Debug.Log("맞는 열쇠, 퍼즐 해결 성공");
+            // 퍼즐 매니저에게 해결 신호 전달
             doorPuzzleManager.puzzleSolved = true;
         }
         else
