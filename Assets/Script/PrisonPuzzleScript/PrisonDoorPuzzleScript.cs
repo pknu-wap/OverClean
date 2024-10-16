@@ -6,14 +6,42 @@ using UnityEngine.SceneManagement;
 public class PrisonDoorPuzzleScript : MonoBehaviour
 {
     // 자물쇠 목록
-    public List<GameObject> lockObjects = new List<GameObject> {};
+    public List<GameObject> lockObjectsList = new List<GameObject>();
     // 열쇠 목록
-    public List<GameObject> keyObjects = new List<GameObject> {};
+    public List<GameObject> keyObjectsList = new List<GameObject>();
 
     // 선택한 자물쇠와 맞는 열쇠 변수
     private GameObject curLock;
-    private GameObject curkey;
-    
+    private GameObject curKey;
+
+    // 표시될 열쇠들의 목록(일단 7개, 코드에서 수정가능)
+    private GameObject[] displayKeyObjectsList = new GameObject[7];
+
+    // 열쇠가 생성될 구간
+    private Vector2 minPosition = new Vector2(-58.0f, -56.0f);
+    private Vector2 maxPosition = new Vector2(-42.0f, -44.0f);
+
+    void Start()
+    {
+        // 해답이 될 자물쇠 - 열쇠 쌍 인덱스 랜덤으로 선택
+        int choosenIndex = Random.Range(0,lockObjectsList.Count - 1);
+        // 사용될 자물쇠 할당
+        curLock = lockObjectsList[choosenIndex];
+        // 자물쇠에 맞는 키 할당
+        curKey = keyObjectsList[choosenIndex];
+        // 열쇠 6개(해답 열쇠 제외) 생성 반복문
+        for(int i = 0; i < 7; i++)
+        {
+            // 생성될 키의 인덱스
+            int keyIndex;
+            do
+            {
+                // 0~6 인덱스 사이에서 뽑되, 정답 열쇠는 하나만 존재해야 하므로 해답 인덱스는 제외
+                keyIndex = Random.Range(0,6);
+            } while(keyIndex == choosenIndex);
+            GenerateKey(keyIndex);
+        }
+    }
     void Update()
     {
         // Z 키를 눌렀을 때 퍼즐 성공
@@ -28,6 +56,21 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
         {
             ClosePuzzleScene();
         }
+    }
+
+    // 키 인덱스를 매개변수로 받아 키 인스턴스 생성
+    public void GenerateKey(int curKeyIndex)
+    {
+        Vector3 keyGeneratePosition = new Vector3(
+                // x축 랜덤 위치
+                Random.Range(minPosition.x, maxPosition.x), 
+                // y축 랜덤 위치
+                Random.Range(minPosition.y, maxPosition.y), 
+                // z축은 -1.1f로 고정
+                -1.1f  
+            );
+            // 키 생성
+            Instantiate(keyObjectsList[curKeyIndex], keyGeneratePosition, Quaternion.identity);
     }
 
     // 퍼즐 성공 시 호출되는 함수
