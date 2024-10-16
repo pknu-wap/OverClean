@@ -152,15 +152,38 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         Debug.Log(otherPlayer.NickName + "이(가) 방을 나갔습니다.");
 
-        // 남아있는 플레이어의 캐릭터 이미지 업데이트
-        UpdateCharacterImages();
-
-        // 나간 플레이어의 캐릭터를 흑백 이미지로 설정
+        // 나간 플레이어의 캐릭터 이미지 업데이트
         SetCharacterImagesToBlackAndWhite(); 
+        
+        // Player1이 나간 경우
+        if (otherPlayer.ActorNumber == 1)
+        {
+            // 남아 있는 플레이어가 있을 경우, Player2를 Player1로 할당
+            if (PhotonNetwork.PlayerList.Length > 1)
+            {
+                Photon.Realtime.Player newPlayer1 = PhotonNetwork.PlayerList[1]; // Player2를 새로운 Player1으로 설정
+                newPlayer1.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Character", "Matthew" } }); // Player2의 캐릭터 속성을 업데이트
+
+                // Player2 이미지 업데이트
+                player1Image.sprite = matthewColorImage; // Player2의 이미지를 컬러로 변경
+                player1Text.text = "Player1"; // Player1 텍스트 업데이트
+
+                // Player2의 이미지 흑백으로 설정
+                player2Image.sprite = matthewBWImage; // Player2의 이미지를 흑백으로 변경
+                player2Text.text = "플레이어를 기다리는 중..."; // Player2 텍스트 업데이트
+            }
+        }
+        else
+        {
+            // 나간 플레이어가 Player2인 경우
+            // 이미지 업데이트
+            UpdateCharacterImages(); // 남아 있는 플레이어의 캐릭터 이미지 업데이트
+        }
 
         // 플레이어 텍스트 업데이트
-        UpdatePlayerTexts();
+        UpdatePlayerTexts(); // 남은 플레이어의 텍스트 업데이트
     }
+
 
     // Ready 버튼 클릭 시 호출되는 함수
     public void ReadyUp()
