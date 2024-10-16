@@ -50,6 +50,12 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Photon Master 서버에 연결되었습니다.");
+        PhotonNetwork.JoinLobby();
+    }
+
     // Start 버튼 클릭 시 GameLobby 씬으로 이동
     public void OnStartButtonClicked()
     {
@@ -115,24 +121,21 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     // 방 입장 시 캐릭터 할당
     private void AssignCharacterToPlayer(Photon.Realtime.Player player)
     {
-        if (!player.CustomProperties.ContainsKey("Character"))
+        string assignedCharacter;
+        if (PhotonNetwork.PlayerList.Length == 1)
         {
-            // 플레이어가 처음 입장한 경우에만 캐릭터를 할당
-            string assignedCharacter = PhotonNetwork.PlayerList.Length == 1 ? "Dave" : "Matthew";
-            ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
-            playerProps.Add("Character", assignedCharacter);
-            player.SetCustomProperties(playerProps);
-
-            Debug.Log(player.NickName + "에게 캐릭터 " + assignedCharacter + "가 할당되었습니다.");
+            assignedCharacter = "Dave"; // 첫 번째 플레이어는 Dave
         }
-    }
+        else
+        {
+            assignedCharacter = "Matthew"; // 두 번째 플레이어는 Matthew
+        }
 
-    // Photon 서버에 연결 성공 시 호출
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("Photon 서버에 연결되었습니다.");
-        // 로비 접속
-        PhotonNetwork.JoinLobby();
+        ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
+        playerProps.Add("Character", assignedCharacter);
+        player.SetCustomProperties(playerProps);
+
+        Debug.Log(player.NickName + "에게 캐릭터 " + assignedCharacter + "가 할당되었습니다.");
     }
 
     // 로비에 접속 성공 시 호출
@@ -181,16 +184,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
         Debug.Log(otherPlayer.NickName + "이(가) 방을 나갔습니다.");
-
-        // 남아 있는 플레이어의 캐릭터가 유지되도록 처리
-        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
-        {
-            if (player.CustomProperties.ContainsKey("Character"))
-            {
-                string character = player.CustomProperties["Character"].ToString();
-                Debug.Log("남은 플레이어 " + player.NickName + "의 캐릭터는 " + character + "입니다.");
-            }
-        }
+        // 추가 로직이 필요한 경우 여기에 구현
     }
 
     // 방에서 나가는 경우에 호출
