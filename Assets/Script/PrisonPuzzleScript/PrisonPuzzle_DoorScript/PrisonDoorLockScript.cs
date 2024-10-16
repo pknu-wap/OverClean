@@ -10,7 +10,7 @@ public class PrisonDoorLockScript : MonoBehaviour
     // 정답 키 변수
     private GameObject ansKey;
 
-    void Awake()
+    void Start()
     {
         // 퍼즐 매니저가 지정한 정답 키 할당
         ansKey = doorPuzzleManager.ansKey;

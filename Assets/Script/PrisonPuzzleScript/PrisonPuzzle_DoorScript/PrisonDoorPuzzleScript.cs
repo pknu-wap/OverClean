@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,7 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
 
     // 열쇠가 생성될 구간
     private Vector2 minPosition = new Vector2(-58.0f, -56.0f);
-    private Vector2 maxPosition = new Vector2(-42.0f, -44.0f);
+    private Vector2 maxPosition = new Vector2(-42.0f, -50.0f);
 
     // 퍼즐이 풀렸는지 자물쇠로부터 정보를 받아올 변수(초기값 false)
     public bool puzzleSolved = false;
@@ -32,6 +33,8 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
         ansLock = lockObjectsList[choosenIndex];
         // 자물쇠에 맞는 열쇠 할당
         ansKey = keyObjectsList[choosenIndex];
+        // 열쇠 스크립트의 해답 속성 true로 변경
+        ansKey.GetComponent<PrisonDoorKeyScript>().isAnsKey = true;
         // 오답 열쇠 6개 생성 반복문
         for(int i = 0; i < 6; i++)
         {
@@ -39,17 +42,17 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
             int keyIndex;
             do
             {
-                // 0~6 인덱스 사이에서 뽑되, 정답 열쇠는 하나만 존재해야 하므로 해답 인덱스는 제외
-                keyIndex = Random.Range(0,6);
+                // 0~4 인덱스 사이에서 뽑되, 정답 열쇠는 하나만 존재해야 하므로 해답 인덱스는 제외
+                keyIndex = Random.Range(0,5);
             } while(keyIndex == choosenIndex);
             GenerateKey(keyIndex);
         }
         // 해답 열쇠 생성
         GenerateKey(choosenIndex);
         // 자물쇠 생성
-        Instantiate(lockObjectsList[choosenIndex], new Vector3(-47.0f,-50.0f,-1.1f), Quaternion.identity);
+        Instantiate(lockObjectsList[choosenIndex], new Vector3(-50.0f,-47.0f,-1.1f), Quaternion.identity);
     }
-    
+
     void Update()
     {
         // Z 키를 눌렀을 때 퍼즐 성공
