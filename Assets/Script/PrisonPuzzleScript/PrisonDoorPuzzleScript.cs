@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PrisonDoorPuzzleScript : MonoBehaviour
 {
+    // 자물쇠 목록
+    public List<GameObject> lockObjects = new List<GameObject> {};
+    // 열쇠 목록
+    public List<GameObject> keyObjects = new List<GameObject> {};
+
+    // 선택한 자물쇠와 맞는 열쇠 변수
+    private GameObject curLock;
+    private GameObject curkey;
+    
     void Update()
     {
         // Z 키를 눌렀을 때 퍼즐 성공

@@ -6920,7 +6920,6 @@ MonoBehaviour:
   prisonDoor: {fileID: 1264324508}
   doorMoveSpeed: 1
   sr: {fileID: 1264324512}
-  doorPuzzle: {fileID: 1673583909}
 --- !u!60 &1264324511
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7294,6 +7293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1284700840}
+  - component: {fileID: 1284700841}
   m_Layer: 0
   m_Name: PrisonPuzzleManager
   m_TagString: Untagged
@@ -7316,6 +7316,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284700841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284700839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce8eb0d9932f6647a6232256997ec5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPuzzleSuccess: 0
 --- !u!1 &1359239810
 GameObject:
   m_ObjectHideFlags: 0
@@ -8104,7 +8117,6 @@ MonoBehaviour:
   prisonDoor: {fileID: 1722749263}
   doorMoveSpeed: 1
   sr: {fileID: 1722749267}
-  doorPuzzle: {fileID: 1673583909}
 --- !u!60 &1722749266
 PolygonCollider2D:
   m_ObjectHideFlags: 0
