@@ -11,8 +11,8 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
     public List<GameObject> keyObjectsList = new List<GameObject>();
 
     // 선택한 자물쇠와 맞는 열쇠 변수
-    private GameObject curLock;
-    private GameObject curKey;
+    public GameObject ansLock;
+    public GameObject ansKey;
 
     // 표시될 열쇠들의 목록(일단 7개, 코드에서 수정가능)
     private GameObject[] displayKeyObjectsList = new GameObject[7];
@@ -21,14 +21,17 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
     private Vector2 minPosition = new Vector2(-58.0f, -56.0f);
     private Vector2 maxPosition = new Vector2(-42.0f, -44.0f);
 
+    // 퍼즐이 풀렸는지 자물쇠로부터 정보를 받아올 변수(초기값 false)
+    public bool puzzleSolved = false;
+
     void Start()
     {
         // 해답이 될 자물쇠 - 열쇠 쌍 인덱스 랜덤으로 선택
         int choosenIndex = Random.Range(0,lockObjectsList.Count - 1);
         // 사용될 자물쇠 할당
-        curLock = lockObjectsList[choosenIndex];
+        ansLock = lockObjectsList[choosenIndex];
         // 자물쇠에 맞는 열쇠 할당
-        curKey = keyObjectsList[choosenIndex];
+        ansKey = keyObjectsList[choosenIndex];
         // 오답 열쇠 6개 생성 반복문
         for(int i = 0; i < 6; i++)
         {
@@ -46,10 +49,11 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
         // 자물쇠 생성
         Instantiate(lockObjectsList[choosenIndex], new Vector3(-47.0f,-50.0f,-1.1f), Quaternion.identity);
     }
+    
     void Update()
     {
         // Z 키를 눌렀을 때 퍼즐 성공
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (puzzleSolved)
         {
             PuzzleSuccess();
         }
