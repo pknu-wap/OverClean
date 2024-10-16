@@ -27,12 +27,12 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
         int choosenIndex = Random.Range(0,lockObjectsList.Count - 1);
         // 사용될 자물쇠 할당
         curLock = lockObjectsList[choosenIndex];
-        // 자물쇠에 맞는 키 할당
+        // 자물쇠에 맞는 열쇠 할당
         curKey = keyObjectsList[choosenIndex];
-        // 열쇠 6개(해답 열쇠 제외) 생성 반복문
-        for(int i = 0; i < 7; i++)
+        // 오답 열쇠 6개 생성 반복문
+        for(int i = 0; i < 6; i++)
         {
-            // 생성될 키의 인덱스
+            // 생성될 열쇠의 인덱스
             int keyIndex;
             do
             {
@@ -41,6 +41,10 @@ public class PrisonDoorPuzzleScript : MonoBehaviour
             } while(keyIndex == choosenIndex);
             GenerateKey(keyIndex);
         }
+        // 해답 열쇠 생성
+        GenerateKey(choosenIndex);
+        // 자물쇠 생성
+        Instantiate(lockObjectsList[choosenIndex], new Vector3(-47.0f,-50.0f,-1.1f), Quaternion.identity);
     }
     void Update()
     {
