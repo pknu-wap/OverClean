@@ -29,6 +29,8 @@ public class DoorInteract : MonoBehaviour
     private bool isMoving = false; 
     // 문을 참조해서 material을 조정하기 위한 spriterenderer 변수
     public SpriteRenderer sr;
+    // 문 퍼즐
+    public GameObject doorPuzzle;
     // 퍼즐이 열려있는지 확인하기 위한 변수
     private bool isPuzzleOpen = false;
 

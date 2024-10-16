@@ -8,17 +8,17 @@ public class PrisonDoorLockScript : MonoBehaviour
     // 퍼즐 매니저 참조
     public PrisonDoorPuzzleScript doorPuzzleManager;
     // 정답 키 변수
-    private GameObject ansKey;
+    public GameObject ansKey;
 
-    void Start()
+    // 퍼즐 매니저를 프리팹에 참조시킴
+    void Awake()
     {
-        // 퍼즐 매니저가 지정한 정답 키 할당
-        ansKey = doorPuzzleManager.ansKey;
+        doorPuzzleManager = FindObjectOfType<PrisonDoorPuzzleScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other == ansKey)
+        if(other.GetComponent<PrisonDoorKeyScript>().isAnsKey)
         {
             Debug.Log("맞는 열쇠, 퍼즐 해결 성공");
             doorPuzzleManager.puzzleSolved = true;
