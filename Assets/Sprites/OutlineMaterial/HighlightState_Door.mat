@@ -82,12 +82,12 @@ Material:
     - _OutlineMode: 0
     - _OutlinePosition: 0
     - _OutlineShape: 0
-    - _OutlineSize: 0.0267
+    - _OutlineSize: 0.0347
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Thickness: 3
+    - _Thickness: 5
     - _UVSec: 0
     - _Weight: 0.5
     - _ZWrite: 1
