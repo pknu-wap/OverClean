@@ -198,7 +198,7 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         // 로컬 플레이어의 캐릭터 속성 가져오기
         var localPlayer = PhotonNetwork.LocalPlayer;
         string currentCharacter = localPlayer.CustomProperties.ContainsKey("Character")
-                                  ? localPlayer.CustomProperties["Character"].ToString() : "";
+                                ? localPlayer.CustomProperties["Character"].ToString() : "";
 
         // 상대 플레이어 찾기
         Photon.Realtime.Player otherPlayer = null;
@@ -230,6 +230,13 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
             otherPlayer.SetCustomProperties(otherPlayerProperties);
 
             Debug.Log($"플레이어 전환 완료: localPlayer는 {otherCharacter}, OnlinePlayer는 {currentCharacter}");
+
+            // 추가: 캐릭터 전환 후 RoomManager의 캐릭터 이미지 업데이트 호출
+            RoomManager roomManager = FindObjectOfType<RoomManager>();
+            if (roomManager != null)
+            {
+                roomManager.UpdateCharacterImages();
+            }
         }
     }
 }
