@@ -1,7 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
@@ -191,5 +190,46 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+    }
+
+    // 플레이어 전환을 처리하는 함수
+    public void SwitchPlayers()
+    {
+        // 로컬 플레이어의 캐릭터 속성 가져오기
+        var localPlayer = PhotonNetwork.LocalPlayer;
+        string currentCharacter = localPlayer.CustomProperties.ContainsKey("Character")
+                                  ? localPlayer.CustomProperties["Character"].ToString() : "";
+
+        // 상대 플레이어 찾기
+        Photon.Realtime.Player otherPlayer = null;
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (!player.IsLocal) // 로컬 플레이어가 아닌 상대 플레이어 찾기
+            {
+                otherPlayer = player;
+                break;
+            }
+        }
+
+        // 전환할 상대 플레이어가 없으면 리턴
+        if (otherPlayer == null) return;
+
+        // 상대 플레이어의 캐릭터 속성 가져오기
+        string otherCharacter = otherPlayer.CustomProperties.ContainsKey("Character")
+                                ? otherPlayer.CustomProperties["Character"].ToString() : "";
+
+        // 로컬 플레이어와 상대 플레이어의 캐릭터 교환
+        if (!string.IsNullOrEmpty(currentCharacter) && !string.IsNullOrEmpty(otherCharacter))
+        {
+            // 로컬 플레이어는 상대의 캐릭터를, 상대는 로컬의 캐릭터를 할당
+            // System.Collections.Hashtable과 충돌 여지가 있어서 네임스페이스를 명시적으로 사용했습니다.
+            ExitGames.Client.Photon.Hashtable localPlayerProperties = new ExitGames.Client.Photon.Hashtable { { "Character", otherCharacter } };
+            ExitGames.Client.Photon.Hashtable otherPlayerProperties = new ExitGames.Client.Photon.Hashtable { { "Character", currentCharacter } };
+
+            localPlayer.SetCustomProperties(localPlayerProperties);
+            otherPlayer.SetCustomProperties(otherPlayerProperties);
+
+            Debug.Log($"플레이어 전환 완료: localPlayer는 {otherCharacter}, OnlinePlayer는 {currentCharacter}");
+        }
     }
 }
