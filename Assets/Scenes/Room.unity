@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 187048804}
   - component: {fileID: 187048803}
   m_Layer: 5
-  m_Name: ReadyText
+  m_Name: Player1ReadyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 345217156}
   - component: {fileID: 345217155}
   m_Layer: 5
-  m_Name: ReadyText
+  m_Name: Player2ReadyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1665,7 +1665,7 @@ GameObject:
   - component: {fileID: 1528054316}
   - component: {fileID: 1528054315}
   m_Layer: 5
-  m_Name: ReadyButton
+  m_Name: Player2ReadyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1734,7 +1734,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528054316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1710354786}
+        m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
+        m_MethodName: ReadyUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1528054316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,6 +1825,8 @@ MonoBehaviour:
   player2Text: {fileID: 370826063}
   player1Indicator: {fileID: 119636156}
   player2Indicator: {fileID: 1912108533}
+  player1ReadyText: {fileID: 187048803}
+  player2ReadyText: {fileID: 345217155}
 --- !u!4 &1710354787
 Transform:
   m_ObjectHideFlags: 0
@@ -2210,7 +2224,7 @@ GameObject:
   - component: {fileID: 1956269875}
   - component: {fileID: 1956269874}
   m_Layer: 5
-  m_Name: ReadyButton
+  m_Name: Player1ReadyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,7 +2293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1956269875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1710354786}
+        m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
+        m_MethodName: ReadyUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1956269875
 MonoBehaviour:
   m_ObjectHideFlags: 0

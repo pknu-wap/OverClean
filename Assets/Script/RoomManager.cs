@@ -2,6 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -28,6 +29,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Text player1Indicator;
     public Text player2Indicator;
 
+    // 레디 상태 표시 텍스트
+    public Text player1ReadyText;
+    public Text player2ReadyText;
+
+    // 준비 상태
+    private bool player1Ready = false;
+    private bool player2Ready = false;
+
     private void Start()
     {
         if (PhotonNetwork.InRoom)
@@ -51,6 +60,46 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
             // 초기화 시 캐릭터 이미지를 흑백으로 설정
             SetCharacterImagesToBlackAndWhite();
+        }
+    }
+
+    // 두 플레이어 모두 준비됐는지 확인하는 함수
+    private void CheckAllPlayersReady()
+    {
+        if (player1Ready && player2Ready)
+        {
+            // 모두 준비 상태일 때 5초 후에 게임 시작
+            StartCoroutine(StartGameAfterDelay(5));
+        }
+    }
+
+    // 5초 후에 게임 시작
+    private IEnumerator StartGameAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("GameScene");  // 실제 게임 씬으로 전환
+    }
+
+    // Ready 버튼 클릭 시 호출되는 함수
+    public void ReadyUp()
+    {
+        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Character"))
+        {
+            string character = PhotonNetwork.LocalPlayer.CustomProperties["Character"].ToString();
+
+            if (character == "Dave")
+            {
+                player1Ready = !player1Ready;  // 준비 상태 전환
+                player1ReadyText.text = player1Ready ? "Ready!" : "";
+            }
+            else if (character == "Matthew")
+            {
+                player2Ready = !player2Ready;
+                player2ReadyText.text = player2Ready ? "Ready!" : "";
+            }
+
+            // 모든 플레이어가 준비됐는지 확인
+            CheckAllPlayersReady();
         }
     }
 
@@ -87,6 +136,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     // Player1이 Dave일 경우 이미지 컬러로 변경 및 텍스트 업데이트
                     player1Image.sprite = daveColorImage;
                     player1Text.text = "Player1";
+                    // 준비 상태 표시
+                    player1ReadyText.text = player1Ready ? "Ready!" : "";
                     // 로컬 플레이어가 Player1이면 "You" 표시
                     player1Indicator.text = player.IsLocal ? "You" : "";
                 }
@@ -95,6 +146,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     // Player2가 Matthew일 경우 이미지 컬러로 변경 및 텍스트 업데이트
                     player2Image.sprite = matthewColorImage;
                     player2Text.text = "Player2";
+                    // 준비 상태 표시
+                    player2ReadyText.text = player2Ready ? "Ready!" : "";
                     // 로컬 플레이어가 Player2이면 "You" 표시
                     player2Indicator.text = player.IsLocal ? "You" : "";
                 }
@@ -211,12 +264,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         // 플레이어 텍스트 업데이트
         UpdatePlayerTexts();
-    }
-
-    // Ready 버튼 클릭 시 호출되는 함수
-    public void ReadyUp()
-    {
-        Debug.Log("Player Ready!");
     }
 
     // Back 버튼 클릭 시 호출되는 함수
