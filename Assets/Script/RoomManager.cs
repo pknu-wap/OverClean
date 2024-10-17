@@ -77,7 +77,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private IEnumerator StartGameAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("GameScene");  // 실제 게임 씬으로 전환
+        SceneManager.LoadScene("PrisonScene");
     }
 
     // Ready 버튼 클릭 시 호출되는 함수
