@@ -58,7 +58,13 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
     // Exit 버튼 클릭 시 게임 종료
     public void OnExitButtonClicked()
     {
-        Application.Quit();
+        // 에디터와 프로그램 실행을 구분.
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // 어플리케이션 종료
+            Application.Quit();
+        #endif
         Debug.Log("게임 종료");
     }
 
