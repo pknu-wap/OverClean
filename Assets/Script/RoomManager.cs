@@ -89,7 +89,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
             if (character == "Dave")
             {
-                player1Ready = !player1Ready;  // 준비 상태 전환
+                // 준비 상태 전환
+                player1Ready = !player1Ready;
                 player1ReadyText.text = player1Ready ? "Ready!" : "";
             }
             else if (character == "Matthew")
@@ -182,7 +183,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
 
     // 플레이어 텍스트 업데이트 함수
     private void UpdatePlayerTexts()
