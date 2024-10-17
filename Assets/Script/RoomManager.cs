@@ -66,7 +66,27 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // 두 플레이어 모두 준비됐는지 확인하는 함수
     private void CheckAllPlayersReady()
     {
-        if (player1Ready && player2Ready)
+        bool allReady = true;
+
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.ContainsKey("Ready"))
+            {
+                bool isReady = (bool)player.CustomProperties["Ready"];
+                if (!isReady)
+                {
+                    allReady = false;
+                    break;
+                }
+            }
+            else
+            {
+                allReady = false;
+                break;
+            }
+        }
+
+        if (allReady)
         {
             // 모두 준비 상태일 때 5초 후에 게임 시작
             StartCoroutine(StartGameAfterDelay(5));
@@ -80,7 +100,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("PrisonScene");
     }
 
-    // Ready 버튼 클릭 시 호출되는 함수
     public void ReadyUp()
     {
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Character"))
@@ -92,11 +111,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 // 준비 상태 전환
                 player1Ready = !player1Ready;
                 player1ReadyText.text = player1Ready ? "Ready!" : "";
+                
+                // 플레이어의 준비 상태를 네트워크에 동기화
+                PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Ready", player1Ready } });
             }
             else if (character == "Matthew")
             {
                 player2Ready = !player2Ready;
                 player2ReadyText.text = player2Ready ? "Ready!" : "";
+                
+                // 플레이어의 준비 상태를 네트워크에 동기화
+                PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Ready", player2Ready } });
             }
 
             // 모든 플레이어가 준비됐는지 확인
