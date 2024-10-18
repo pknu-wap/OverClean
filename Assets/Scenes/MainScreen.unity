@@ -816,11 +816,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f6ec4bfd4af091140adf7671f1deb6d5, type: 3}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 20933a46ecc135743ae820d88352906e, type: 3}
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 5
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -919,17 +919,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1602602501}
-        m_TargetAssemblyTypeName: NetworkingManager, Assembly-CSharp
-        m_MethodName: OnExitButtonClicked
-        m_Mode: 1
+      - m_Target: {fileID: 1928240745}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1413888928
 MonoBehaviour:
@@ -1052,9 +1052,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScreenEvent, Assembly-CSharp
-        m_MethodName: ExitMainScreen
+      - m_Target: {fileID: 1602602501}
+        m_TargetAssemblyTypeName: NetworkingManager, Assembly-CSharp
+        m_MethodName: OnExitButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3882353, g: 1, b: 0.68235296, a: 1}
+  m_Color: {r: 0.62352943, g: 0.63529414, b: 0.8196079, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1403,3 +1403,4 @@ SceneRoots:
   - {fileID: 20954841}
   - {fileID: 1207521632}
   - {fileID: 1602602502}
+  - {fileID: 702657152}
