@@ -49,6 +49,12 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Photon Master 서버에 연결되었습니다.");
+        PhotonNetwork.JoinLobby();
+    }
+
     // Start 버튼 클릭 시 GameLobby 씬으로 이동
     public void OnStartButtonClicked()
     {
@@ -117,12 +123,24 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomCode);
     }
 
-    // Photon 서버에 연결 성공 시 호출
-    public override void OnConnectedToMaster()
+    // 방 입장 시 캐릭터 할당
+    private void AssignCharacterToPlayer(Photon.Realtime.Player player)
     {
-        Debug.Log("Photon 서버에 연결되었습니다.");
-        // 로비 접속
-        PhotonNetwork.JoinLobby();
+        string assignedCharacter;
+        if (PhotonNetwork.PlayerList.Length == 1)
+        {
+            assignedCharacter = "Dave"; // 첫 번째 플레이어는 Dave
+        }
+        else
+        {
+            assignedCharacter = "Matthew"; // 두 번째 플레이어는 Matthew
+        }
+
+        ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
+        playerProps.Add("Character", assignedCharacter);
+        player.SetCustomProperties(playerProps);
+
+        Debug.Log(player.NickName + "에게 캐릭터 " + assignedCharacter + "가 할당되었습니다.");
     }
 
     // 로비에 접속 성공 시 호출
@@ -148,6 +166,9 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
             Debug.Log("방 입장 성공: 방 코드를 찾을 수 없습니다.");
         }
 
+        // 플레이어에게 캐릭터 할당
+        AssignCharacterToPlayer(PhotonNetwork.LocalPlayer);
+
         // 방에 입장 성공하면 씬 전환
         SceneManager.LoadScene("Room");
     }
@@ -164,9 +185,64 @@ public class NetworkingManager : MonoBehaviourPunCallbacks
         Debug.LogError("방 생성 실패: " + message);
     }
 
-    // 랜덤 방 입장 실패 시 호출 (추후 QuickMatch 기능에 사용 가능)
-    public override void OnJoinRandomFailed(short returnCode, string message)
+    // 플레이어가 방에서 나갈 때 호출
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        Debug.LogError("랜덤 방 입장 실패: " + message);
+        Debug.Log(otherPlayer.NickName + "이(가) 방을 나갔습니다.");
+        // 추가 로직이 필요한 경우 여기에 구현
+    }
+
+    // 방에서 나가는 경우에 호출
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    // 플레이어 전환을 처리하는 함수
+    public void SwitchPlayers()
+    {
+        // 로컬 플레이어의 캐릭터 속성 가져오기
+        var localPlayer = PhotonNetwork.LocalPlayer;
+        string currentCharacter = localPlayer.CustomProperties.ContainsKey("Character")
+                                ? localPlayer.CustomProperties["Character"].ToString() : "";
+
+        // 상대 플레이어 찾기
+        Photon.Realtime.Player otherPlayer = null;
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (!player.IsLocal) // 로컬 플레이어가 아닌 상대 플레이어 찾기
+            {
+                otherPlayer = player;
+                break;
+            }
+        }
+
+        // 전환할 상대 플레이어가 없으면 리턴
+        if (otherPlayer == null) return;
+
+        // 상대 플레이어의 캐릭터 속성 가져오기
+        string otherCharacter = otherPlayer.CustomProperties.ContainsKey("Character")
+                                ? otherPlayer.CustomProperties["Character"].ToString() : "";
+
+        // 로컬 플레이어와 상대 플레이어의 캐릭터 교환
+        if (!string.IsNullOrEmpty(currentCharacter) && !string.IsNullOrEmpty(otherCharacter))
+        {
+            // 로컬 플레이어는 상대의 캐릭터를, 상대는 로컬의 캐릭터를 할당
+            // System.Collections.Hashtable과 충돌 여지가 있어서 네임스페이스를 명시적으로 사용했습니다.
+            ExitGames.Client.Photon.Hashtable localPlayerProperties = new ExitGames.Client.Photon.Hashtable { { "Character", otherCharacter } };
+            ExitGames.Client.Photon.Hashtable otherPlayerProperties = new ExitGames.Client.Photon.Hashtable { { "Character", currentCharacter } };
+
+            localPlayer.SetCustomProperties(localPlayerProperties);
+            otherPlayer.SetCustomProperties(otherPlayerProperties);
+
+            Debug.Log($"플레이어 전환 완료: localPlayer는 {otherCharacter}, OnlinePlayer는 {currentCharacter}");
+
+            // 추가: 캐릭터 전환 후 RoomManager의 캐릭터 이미지 업데이트 호출
+            RoomManager roomManager = FindObjectOfType<RoomManager>();
+            if (roomManager != null)
+            {
+                roomManager.UpdateCharacterImages();
+            }
+        }
     }
 }
