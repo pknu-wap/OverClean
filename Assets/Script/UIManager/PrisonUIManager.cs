@@ -10,11 +10,11 @@ public class PrisonUIManager : MonoBehaviour
     public GoalZoneScript goalZone;
 
     public GameObject tutorialPanel;
-    public GameObject taskPanel;
+    public CanvasGroup taskPanelCanvasGroup;
     public GameObject pausePanel;
     public GameObject pauseTextPanel;
 
-    private bool taskPanelOpen = false;
+    public bool taskPanelOpen = false;
     public bool tutorialPanelOpen = true;
     public bool isPaused = false;
 
@@ -26,7 +26,7 @@ public class PrisonUIManager : MonoBehaviour
         goalZone = FindAnyObjectByType<GoalZoneScript>();
         photonView = GetComponent<PhotonView>();
         tutorialPanel.SetActive(tutorialPanelOpen);
-        taskPanel.SetActive(taskPanelOpen);
+        taskPanelCanvasGroup.alpha = 0f;
     }
 
     private void Update()
@@ -88,16 +88,28 @@ public class PrisonUIManager : MonoBehaviour
         if(!taskPanelOpen)
         {
             taskPanelOpen = true;
-            taskPanel.gameObject.SetActive(taskPanelOpen);
+            ShowTaskPanel();
             Debug.Log("패널 열림");
         }
         else
         {
             taskPanelOpen = false;
-            taskPanel.gameObject.SetActive(taskPanelOpen);
+            HideTaskPanel();
             Debug.Log("패널 닫힘");
         }
     } 
+
+    // 패널 보이기
+    private void ShowTaskPanel()
+    {
+        taskPanelCanvasGroup.alpha = 0.7f;
+    }
+
+    // 패널 숨기기
+    private void HideTaskPanel()
+    {
+        taskPanelCanvasGroup.alpha = 0f;
+    }
 
     [PunRPC]
     void UpdatePauseState(int actorNumber, bool pauseState)

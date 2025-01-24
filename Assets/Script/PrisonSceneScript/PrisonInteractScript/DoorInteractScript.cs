@@ -37,7 +37,7 @@ public class DoorInteract : MonoBehaviour
     private bool isPuzzleOpen = false;
 
     // 상호작용시 비활성화 되어있는 캔버스를 열기 위한 변수
-    public RectTransform PuzzleUI;
+    //public RectTransform PuzzleUI;
 
     void Awake()
     {
@@ -138,7 +138,7 @@ public class DoorInteract : MonoBehaviour
         // 퍼즐이 열려 있지 않을 때만 Interact가 실행되었을 때 퍼즐씬이 불러와지도록 조건 추가
         if (!isPuzzleOpen && !PauseManager.Instance.isPaused)
         {
-            PuzzleUI.gameObject.SetActive(true);
+            //PuzzleUI.gameObject.SetActive(true);
             // 씬매니저로 퍼즐씬 불러오기
             SceneManager.LoadScene("PrisonDoorPuzzleScene", LoadSceneMode.Additive);
             // 퍼즐 오픈 변수 true

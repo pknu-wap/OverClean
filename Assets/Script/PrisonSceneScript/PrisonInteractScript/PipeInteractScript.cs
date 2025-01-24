@@ -29,9 +29,6 @@ public class PipeInteract : MonoBehaviourPun
     // 퍼즐이 열려있는지 확인하기 위한 변수
     private bool isPuzzleOpen = false;
 
-    // 상호작용시 비활성화 되어있는 캔버스를 열기 위한 변수
-    public RectTransform PuzzleUI;
-
     void Start()
     {
         if (!hasInteracted)
@@ -82,7 +79,6 @@ public class PipeInteract : MonoBehaviourPun
     {
         if (!isPuzzleOpen && !PauseManager.Instance.isPaused)
         {
-            PuzzleUI.gameObject.SetActive(true);
             // Additive로 씬 로드
             SceneManager.LoadScene("PrisonPipePuzzleScene", LoadSceneMode.Additive);
             isPuzzleOpen = true;
