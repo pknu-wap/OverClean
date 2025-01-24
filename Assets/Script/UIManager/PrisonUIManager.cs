@@ -10,7 +10,6 @@ public class PrisonUIManager : MonoBehaviour
     public GoalZoneScript goalZone;
 
     public GameObject tutorialPanel;
-    public GameObject taskPanelButton;
     public GameObject taskPanel;
     public GameObject pausePanel;
     public GameObject pauseTextPanel;
@@ -85,15 +84,18 @@ public class PrisonUIManager : MonoBehaviour
     // 할 일 목록 열고 닫는 함수(버튼에 연결)
     public void TaskPanelControl()
     {
+        Debug.Log("클릭 인식됨");
         if(!taskPanelOpen)
         {
             taskPanelOpen = true;
             taskPanel.gameObject.SetActive(taskPanelOpen);
+            Debug.Log("패널 열림");
         }
         else
         {
             taskPanelOpen = false;
             taskPanel.gameObject.SetActive(taskPanelOpen);
+            Debug.Log("패널 닫힘");
         }
     } 
 

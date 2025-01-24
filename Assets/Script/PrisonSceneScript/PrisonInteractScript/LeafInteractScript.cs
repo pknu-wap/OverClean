@@ -14,6 +14,8 @@ public class LeafInteract : MonoBehaviour
     public int objectIndex;
     // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
     public StageManager stageManager;
+    // TaskUI를 참조해서 작업 목록 텍스트 갱신
+    public GameObject taskUIManager;
     // 여러 플레이어 위치를 저장할 리스트
     public List<Transform> playerLocations = new List<Transform>();
     // 상호작용 거리
@@ -132,6 +134,8 @@ public class LeafInteract : MonoBehaviour
         stageManager.ObjectInteract(objectIndex);
         // 상호작용 성공 시 낙엽 맵에서 삭제
         Destroy(gameObject);
+        // 태스크 카운트 업데이트
+        taskUIManager.GetComponent<TaskUIManager>().UpdateCount(3);
     }
 
     // 테두리 생성 및 표시

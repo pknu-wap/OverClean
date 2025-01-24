@@ -15,6 +15,8 @@ public class DoorInteract : MonoBehaviour
     public int objectIndex;
     // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
     public StageManager stageManager;
+    // TaskUI를 참조해서 작업 목록 텍스트 갱신
+    public GameObject taskUIManager;
     // 여러 플레이어 위치를 저장할 리스트
     public List<Transform> playerLocations = new List<Transform>();
     // 상호작용 거리
@@ -163,6 +165,8 @@ public class DoorInteract : MonoBehaviour
         hasInteracted = true;
         // 해당 오브젝트 인덱스 상호작용 완료를 stageManager에게 전달
         stageManager.ObjectInteract(objectIndex);
+        // 태스크 카운트 업데이트
+        taskUIManager.GetComponent<TaskUIManager>().UpdateCount(0);
     }
 
     // 문을 부드럽게 이동시키는 함수
