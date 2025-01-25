@@ -23182,8 +23182,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrisonUIManager, Assembly-CSharp
+      - m_Target: {fileID: 2129004388}
+        m_TargetAssemblyTypeName: HouseUIManager, Assembly-CSharp
         m_MethodName: TaskPanelControl
         m_Mode: 1
         m_Arguments:
@@ -23194,8 +23194,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1531687987}
+        m_TargetAssemblyTypeName: SoundAssetManager, Assembly-CSharp
         m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
@@ -23656,12 +23656,12 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: 1a0517ea99bbc3e45bc921cbe1b5dec6, type: 2}
   objectIndex: 6
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocations: []
   interactionDistance: 1.5
   hasInteracted: 0
   doorMoveSpeed: 1
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!212 &593874989
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25132,13 +25132,13 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 2
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocation: {fileID: 0}
   interactionDistance: 2.5
   hasInteracted: 0
   houseShelf: {fileID: 872800547}
   sr: {fileID: 0}
   isBoxArrived: 0
-  PuzzleUI: {fileID: 0}
   matthewIsMe: 0
   dust1: {fileID: 310882999}
   dust2: {fileID: 757949605}
@@ -28336,6 +28336,7 @@ MonoBehaviour:
   normalState: {fileID: 2100000, guid: 156e2e5d3e19cf743a21910567fd6e66, type: 2}
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocation: {fileID: 0}
   canHoldDistance: 2
   isHolding: 0
@@ -31350,13 +31351,13 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 0
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocations: []
   interactionDistance: 1.5
   hasInteracted: 0
   houseWindow: {fileID: 1514945337}
   windowMoveSpeed: 1
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!60 &1514945340
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31531,11 +31532,11 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 4
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocations: []
   interactionDistance: 3
   hasInteracted: 0
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!61 &1521573604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32606,10 +32607,10 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 5
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   fuseInteractZone: {fileID: 191372674}
   hasInteracted: 0
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!61 &1570227788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34006,11 +34007,11 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 1
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocations: []
   interactionDistance: 2
   hasInteracted: 0
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!60 &1627279848
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -34863,6 +34864,7 @@ GameObject:
   - component: {fileID: 1706542071}
   - component: {fileID: 1706542073}
   - component: {fileID: 1706542072}
+  - component: {fileID: 1706542074}
   m_Layer: 6
   m_Name: PlayPuzzleUI
   m_TagString: Untagged
@@ -34879,14 +34881,14 @@ RectTransform:
   m_GameObject: {fileID: 1706542070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 464822024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -960, y: -540}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706542072
@@ -34924,6 +34926,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706542070}
   m_CullTransparentMesh: 0
+--- !u!223 &1706542074
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706542070}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &1720686231
 GameObject:
   m_ObjectHideFlags: 0
@@ -34982,7 +35007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25CF \uC120\uBC18 \uB2E6\uAE30"
+  m_text: "\u25CF \uBC15\uC2A4 \uBC1F\uACE0 \uC120\uBC18 \uB2E6\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39b396cd4059c84469d7008dfdf18fc5, type: 2}
   m_sharedMaterial: {fileID: -3569502582199847866, guid: 39b396cd4059c84469d7008dfdf18fc5, type: 2}
@@ -36913,11 +36938,11 @@ MonoBehaviour:
   canInteractState: {fileID: 2100000, guid: e6d0bc543f597f84f9b6ef33df0aff8f, type: 2}
   objectIndex: 3
   stageManager: {fileID: 1748221699}
+  taskUIManager: {fileID: 1706245666}
   playerLocations: []
   interactionDistance: 2
   hasInteracted: 0
   sr: {fileID: 0}
-  PuzzleUI: {fileID: 0}
 --- !u!61 &1822420506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39921,8 +39946,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageManager: {fileID: 1748221699}
   tutorialPanel: {fileID: 2075822920}
+  taskPanelCanvasGroup: {fileID: 2131444031}
   pausePanel: {fileID: 1278818375}
   pauseTextPanel: {fileID: 636808180}
+  taskPanelOpen: 0
   tutorialPanelOpen: 1
   isPaused: 0
   pausedByPlayerId: -1
