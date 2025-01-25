@@ -46,9 +46,4 @@ public class TaskUIManager : MonoBehaviour
             taskCountList[taskIndex].color = Color.green;
         }
     }
-    
-    void Update()
-    {
-        
-    }
 }
