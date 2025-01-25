@@ -14,6 +14,8 @@ public class FuseBoxInteractScript : MonoBehaviourPun
     public int objectIndex;
     // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
     public StageManager stageManager;
+    // TaskUI를 참조해서 작업 목록 텍스트 갱신
+    public GameObject taskUIManager;
     // 상호작용 구역을 참조하기 위한 변수
     public FuseInteractZone fuseInteractZone;
     // 상호작용 여부
@@ -22,9 +24,6 @@ public class FuseBoxInteractScript : MonoBehaviourPun
     public SpriteRenderer sr;
     // 퍼즐이 열려있는지 확인하기 위한 변수
     private bool isPuzzleOpen = false;
-    
-    // 상호작용시 비활성화 되어있는 캔버스를 열기 위한 변수
-    public RectTransform PuzzleUI;
 
     void Start()
     {
@@ -72,7 +71,6 @@ public class FuseBoxInteractScript : MonoBehaviourPun
     {
         if (!isPuzzleOpen && !PauseManager.Instance.isPaused)
         {
-            PuzzleUI.gameObject.SetActive(true);
             // Additive로 씬 로드
             SceneManager.LoadScene("HouseFuseBoxPuzzleScene", LoadSceneMode.Additive);
             isPuzzleOpen = true;
@@ -92,6 +90,8 @@ public class FuseBoxInteractScript : MonoBehaviourPun
         PuzzleManager.instance.isPuzzleSuccess = false;
         // 퍼즐이 성공했으므로 플레이어 이동 가능하게 설정
         stageManager.SetPlayerMovement(true);
+        // 태스크 카운트 업데이트
+        taskUIManager.GetComponent<TaskUIManager>().UpdateCount(6);
     }
 
     [PunRPC]

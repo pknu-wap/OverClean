@@ -2750,7 +2750,7 @@ GameObject:
   - component: {fileID: 321694113}
   - component: {fileID: 321694112}
   m_Layer: 5
-  m_Name: Task4Count
+  m_Name: Task7Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22977,7 +22977,7 @@ GameObject:
   - component: {fileID: 558676064}
   - component: {fileID: 558676063}
   m_Layer: 5
-  m_Name: Task4Count
+  m_Name: Task5Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28816,7 +28816,7 @@ GameObject:
   - component: {fileID: 1276316918}
   - component: {fileID: 1276316917}
   m_Layer: 5
-  m_Name: Task4Count
+  m_Name: Task8Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30218,7 +30218,7 @@ GameObject:
   - component: {fileID: 1420724771}
   - component: {fileID: 1420724770}
   m_Layer: 5
-  m_Name: Task4Count
+  m_Name: Task6Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34837,13 +34837,21 @@ MonoBehaviour:
   - {fileID: 62071358}
   - {fileID: 1569064426}
   - {fileID: 1720686233}
+  - {fileID: 1382234746}
+  - {fileID: 1473940323}
+  - {fileID: 948808}
+  - {fileID: 311573674}
   taskCountList:
   - {fileID: 443550613}
   - {fileID: 420623529}
   - {fileID: 4404028}
   - {fileID: 1724142215}
-  currentTaskCount: 00000000000000000000000000000000
-  finalTaskCount: 02000000010000000400000001000000
+  - {fileID: 558676063}
+  - {fileID: 1420724770}
+  - {fileID: 321694112}
+  - {fileID: 1276316917}
+  currentTaskCount: 0000000000000000000000000000000000000000000000000000000000000000
+  finalTaskCount: 0100000001000000010000000100000001000000010000000100000001000000
 --- !u!1 &1706542070
 GameObject:
   m_ObjectHideFlags: 0
