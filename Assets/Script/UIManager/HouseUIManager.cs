@@ -9,9 +9,11 @@ public class HouseUIManager : MonoBehaviour
     private PhotonView photonView;
 
     public GameObject tutorialPanel;
+    public CanvasGroup taskPanelCanvasGroup;
     public GameObject pausePanel;
     public GameObject pauseTextPanel;
 
+    public bool taskPanelOpen = false;
     public bool tutorialPanelOpen = true;
     public bool isPaused = false;
 
@@ -23,6 +25,7 @@ public class HouseUIManager : MonoBehaviour
         stageManager = FindObjectOfType<StageManager>();
         photonView = GetComponent<PhotonView>();
         tutorialPanel.SetActive(tutorialPanelOpen);
+        taskPanelCanvasGroup.alpha = 0f;
     }
 
     private void Update()
@@ -75,6 +78,36 @@ public class HouseUIManager : MonoBehaviour
     public void ClosePausePanel()
     {
         photonView.RPC("UpdatePauseState", RpcTarget.All, pausedByPlayerId, false);
+    }
+
+    // 할 일 목록 열고 닫는 함수(버튼에 연결)
+    public void TaskPanelControl()
+    {
+        Debug.Log("클릭 인식됨");
+        if(!taskPanelOpen)
+        {
+            taskPanelOpen = true;
+            ShowTaskPanel();
+            Debug.Log("패널 열림");
+        }
+        else
+        {
+            taskPanelOpen = false;
+            HideTaskPanel();
+            Debug.Log("패널 닫힘");
+        }
+    } 
+
+    // 패널 보이기
+    private void ShowTaskPanel()
+    {
+        taskPanelCanvasGroup.alpha = 0.7f;
+    }
+
+    // 패널 숨기기
+    private void HideTaskPanel()
+    {
+        taskPanelCanvasGroup.alpha = 0f;
     }
 
     [PunRPC]

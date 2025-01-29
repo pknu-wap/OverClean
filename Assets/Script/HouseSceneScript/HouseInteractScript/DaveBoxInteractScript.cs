@@ -12,6 +12,8 @@ public class DaveBoxInteractScript : MonoBehaviourPun
     public Material canInteractState;
     // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
     public StageManager stageManager;
+    // TaskUI를 참조해서 작업 목록 텍스트 갱신
+    public GameObject taskUIManager;
     // 플레이어 위치를 저장할 변수
     public Transform playerLocation;
     // 들 수 있는 거리
@@ -144,6 +146,8 @@ public class DaveBoxInteractScript : MonoBehaviourPun
             // 변경된 색상 다시 할당
             spriteRenderer.color = color;
         }
+        // 태스크 카운트 업데이트
+        taskUIManager.GetComponent<TaskUIManager>().UpdateCount(2);
     }
 
 

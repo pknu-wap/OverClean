@@ -14,6 +14,8 @@ public class PipeInteract : MonoBehaviourPun
     public int objectIndex;
     // stagemanager를 참조해서 상호작용 여부를 제어하기 위한 변수
     public StageManager stageManager;
+    // TaskUI를 참조해서 작업 목록 텍스트 갱신
+    public GameObject taskUIManager;
     // 상호작용 구역을 참조하기 위한 변수
     public PipeInteractZone pipeInteractZone;
     // 상호작용 여부
@@ -26,9 +28,6 @@ public class PipeInteract : MonoBehaviourPun
     public SpriteRenderer sr;
     // 퍼즐이 열려있는지 확인하기 위한 변수
     private bool isPuzzleOpen = false;
-
-    // 상호작용시 비활성화 되어있는 캔버스를 열기 위한 변수
-    public RectTransform PuzzleUI;
 
     void Start()
     {
@@ -80,7 +79,6 @@ public class PipeInteract : MonoBehaviourPun
     {
         if (!isPuzzleOpen && !PauseManager.Instance.isPaused)
         {
-            PuzzleUI.gameObject.SetActive(true);
             // Additive로 씬 로드
             SceneManager.LoadScene("PrisonPipePuzzleScene", LoadSceneMode.Additive);
             isPuzzleOpen = true;
@@ -102,6 +100,8 @@ public class PipeInteract : MonoBehaviourPun
         stageManager.SetPlayerMovement(true);
         // 상호작용 성공 시 물 숨기기
         Destroy(floodWaterInstance);
+        // 태스크 카운트 업데이트
+        taskUIManager.GetComponent<TaskUIManager>().UpdateCount(1);
     }
 
     [PunRPC]
